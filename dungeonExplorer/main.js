@@ -1,6 +1,14 @@
+/*
+- next step: make 1 map and tilemap it
+- make an matrice of tilemaps
+- make map transition
+- plan PG
+*/
 var canvas, ctx;
-
 var playerOne = new player();
+const BORDER_WIDTH = 40;
+
+//how large the wall is(so the player doesnt leave the room)
 
 window.onload = function() {
 	canvas = document.getElementById('canvas');
