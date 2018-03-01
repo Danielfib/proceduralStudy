@@ -39,6 +39,12 @@ function drawAll(){
 
 	//player (a ball, for now)
 	colorCircle(playerOne.x, playerOne.y, 10, 'red');
+
+	//wall
+	colorRect(0, 0, canvas.width, BORDER_WIDTH/2, 'green'); //upper wall
+	colorRect(0, 0, BORDER_WIDTH/2, canvas.height, 'green'); //western wall
+	colorRect(canvas.width - BORDER_WIDTH/2, 0, BORDER_WIDTH/2, canvas.height, 'green'); //eastern wall
+	colorRect(0, canvas.height - BORDER_WIDTH/2, canvas.width, BORDER_WIDTH/2, 'green'); //southern wall
 }
 
 //graphic functions
