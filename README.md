@@ -1,8 +1,8 @@
 # proceduralStudy
 
-Estudo sobre geração procedural, em vários tipos de jogos.
-Jogos relativamente simples, escritos em Javascript, para facilitar a inserção e avaliação das técnicas de Geração Procedural.
+Study about procedural generation, in different kinds of video games.
+Relative simple games, coded in Javascript, to ease the insetino and evaluation of Procedural Generation techniques.
 
-Objetivos básicos:
-  - Entender em sua totalidade como implementar um sistema proceduralmente gerado, para vários formatos de jogos.
-  - Ponderar sobre fatores e decisões de Game Design, dentro da geração procedural, de forma que possa ser visto que tipo de coisa pode ser interessante e que tipo de coisa é um mal uso da GP.
+Main Goals:
+  - Fully Understand how to implement an proceduraly generated system, for various types of games.
+  - Ponder about factors and decision of Game Design, inside PG, in a way that it can be seen and studied which kind of element might be interesting and which is a bad usage of PG, regarding the player's experience. 
