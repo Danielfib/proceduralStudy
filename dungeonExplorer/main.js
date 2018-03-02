@@ -9,13 +9,10 @@ observations:
 */
 var canvas, ctx;
 var playerOne = new player();
-//var roomTest = new room(false, false, true, true);
-const BORDER_WIDTH = 40;
-//meanwhile, there will be only be one level, to test room transitions
-const ROOMS_CREATED = 4;
-var roomsArray = [ROOMS_CREATED];
+var levelOne = new level(4); //the argument to level is numberOfRooms
 
 //how large the wall is(so the player doesnt leave the room)
+const BORDER_WIDTH = 40;
 
 window.onload = function() {
 	canvas = document.getElementById('canvas');
@@ -24,31 +21,14 @@ window.onload = function() {
 	var fps = 30;
 	//run this function this often
 	setInterval(updateAll, 1000/fps);
-
-	createRooms(ROOMS_CREATED);
-}
-
-//for now, only creating passage to left and right
-function createRooms(howManyRooms){
-	for (var i = 0; i < howManyRooms; i++){
-		if (i == 0){
-			//room at most left
-			roomsArray[i] = new room(false, true, false, false);
-		} else {
-			if (i == howManyRooms-1){
-				//room at most right
-				roomsArray[i] = new room(true, false, false, false);
-			} else {
-				//room in between extremes
-				roomsArray[i] = new room(true, true, false, false);
-			}
-		}
-	}
 }
 
 function updateAll(){
 	moveAll();
 	drawAll();
+
+	//create linear example of rooms in level one
+	levelOne.createLinearExample();
 }
 
 function moveAll(){
