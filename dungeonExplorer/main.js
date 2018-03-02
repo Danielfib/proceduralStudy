@@ -27,7 +27,7 @@ function updateAll(){
 	moveAll();
 	drawAll();
 
-	//create linear example of rooms in level one
+	//create linear example of rooms in level one(4 levels, left to right)
 	levelOne.createLinearExample();
 }
 
@@ -47,7 +47,7 @@ function drawAll(){
 	//player (a ball, for now)
 	colorCircle(playerOne.x, playerOne.y, 10, 'red');
 
-	//border
+	//border (the rooms' walls)
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
 	
 }
