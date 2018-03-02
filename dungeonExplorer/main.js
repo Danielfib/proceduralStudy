@@ -48,23 +48,8 @@ function drawAll(){
 	colorCircle(playerOne.x, playerOne.y, 10, 'red');
 
 	//border
-	colorRect(0, 0, canvas.width, BORDER_WIDTH/2, 'green'); //upper wall
-	colorRect(0, 0, BORDER_WIDTH/2, canvas.height, 'green'); //western wall
-	colorRect(canvas.width - BORDER_WIDTH/2, 0, BORDER_WIDTH/2, canvas.height, 'green'); //eastern wall
-	colorRect(0, canvas.height - BORDER_WIDTH/2, canvas.width, BORDER_WIDTH/2, 'green'); //southern wall
-}
-
-//graphic functions
-function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
-	ctx.fillStyle = fillColor;
-	ctx.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
-}
-
-function colorCircle(centerX, centerY, radius, fillColor){
-	ctx.fillStyle = fillColor;
-	ctx.beginPath();
-	ctx.arc(centerX, centerY, radius, 0, Math.PI*2, true);
-	ctx.fill();
+	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
+	
 }
 
 
