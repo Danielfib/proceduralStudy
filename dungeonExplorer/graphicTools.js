@@ -17,3 +17,18 @@ function drawBorder(canvasHeight, canvasWidth, borderWidth, borderColor){
 	colorRect(canvasWidth - borderWidth/2, 0, borderWidth/2, canvasHeight, borderColor); //eastern wall
 	colorRect(0, canvasHeight - borderWidth/2, canvasWidth, borderWidth/2, borderColor); //southern wall
 }
+
+function drawDoors(room, borderWidth, wallColor){
+	if (room.hasEastDoor){
+		colorRect(0, 275, borderWidth, 50, wallColor);
+	}
+	if (room.hasWestDoor){
+		colorRect(800 - borderWidth, 275, borderWidth, 50, wallColor);		
+	}
+	if (room.hasNorthDoor){
+		colorRect(375, 0, 50, borderWidth, wallColor);		
+	}
+	if (room.hasSouthDoor){
+		colorRect(375, 600 - borderWidth, 50, borderWidth, wallColor);
+	}
+}
