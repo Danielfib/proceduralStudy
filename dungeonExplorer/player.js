@@ -4,6 +4,9 @@ function player(){
 	this.x = 400;
 	this.y = 300;	
 
+	this.currentLevel = levelOne;
+	this.currentRoom = levelOne.roomsArray[0];
+
 	this.keyHeld_North = false;
 	this.keyHeld_South = false;
 	this.keyHeld_West = false;

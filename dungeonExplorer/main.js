@@ -8,8 +8,10 @@ observations:
 - border being drawn multiple times, when it is only needed one
 */
 var canvas, ctx;
-var playerOne = new player();
 var levelOne = new level(4); //the argument to level is numberOfRooms
+//create linear example of rooms in level one(4 levels, left to right)
+levelOne.createLinearExample();
+var playerOne = new player();
 
 //how large the wall is(so the player doesnt leave the room)
 const BORDER_WIDTH = 40;
@@ -26,13 +28,12 @@ window.onload = function() {
 function updateAll(){
 	moveAll();
 	drawAll();
-
-	//create linear example of rooms in level one(4 levels, left to right)
-	levelOne.createLinearExample();
 }
 
 function moveAll(){
 	movePlayers();
+	playerOne.currentRoom.checkDoorCollision(playerOne);
+	//checkDoorCollision(playerOne);
 }
 
 function movePlayers(){
