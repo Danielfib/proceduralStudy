@@ -1,5 +1,9 @@
-/*
-- next step: make 1 map and tilemap it
+/* NEXT STEPS:
+Doors are being checked and visually displayed according to its presence in a room
+	- Check collision
+	- switch rooms 
+
+- make 1 map and tilemap it
 - make an matrice of tilemaps
 - make map transition
 - plan PG
