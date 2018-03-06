@@ -5,7 +5,8 @@ function player(){
 	this.y = 300;	
 
 	this.currentLevel = levelOne;
-	this.currentRoom = levelOne.roomsArray[1]; //player for now starts at second room
+	this.currentRoomCoord = 1;
+	this.currentRoom = levelOne.roomsArray[this.currentRoomCoord]; //player for now starts at second room
 
 	this.keyHeld_North = false;
 	this.keyHeld_South = false;
@@ -64,7 +65,21 @@ function player(){
 		this.y = nextY;
 	
 	}
+
+	this.switchRooms = function(doorEntered){
+		//west = 0, east = 1, north = 2, south = 3
+		if(doorEntered == 0){
+			console.log("entered West door");
+		} else if (doorEntered == 1){
+			console.log("entered East door");
+		} else if (doorEntered == 2){
+			console.log("entered North door");
+		} else if (doorEntered == 3){
+			console.log("entered South door");
+		}
+	}
 }
+
 
 //later organize input.js
 document.addEventListener('keydown', keyPressed);
