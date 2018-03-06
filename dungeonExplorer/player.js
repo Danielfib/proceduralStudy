@@ -5,7 +5,7 @@ function player(){
 	this.y = 300;	
 
 	this.currentLevel = levelOne;
-	this.currentRoom = levelOne.roomsArray[0];
+	this.currentRoom = levelOne.roomsArray[1]; //player for now starts at second room
 
 	this.keyHeld_North = false;
 	this.keyHeld_South = false;
