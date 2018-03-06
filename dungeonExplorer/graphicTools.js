@@ -20,10 +20,10 @@ function drawBorder(canvasHeight, canvasWidth, borderWidth, borderColor){
 
 function drawDoors(room, borderWidth, wallColor){
 	if (room.hasEastDoor){
-		colorRect(0, 275, borderWidth, 50, wallColor);
+		colorRect(800 - borderWidth, 275, borderWidth, 50, wallColor);	
 	}
 	if (room.hasWestDoor){
-		colorRect(800 - borderWidth, 275, borderWidth, 50, wallColor);		
+		colorRect(0, 275, borderWidth, 50, wallColor);	
 	}
 	if (room.hasNorthDoor){
 		colorRect(375, 0, 50, borderWidth, wallColor);		
