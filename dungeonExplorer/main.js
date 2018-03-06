@@ -54,7 +54,7 @@ function drawAll(){
 	//border (the rooms' walls)
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
 	
-	drawDoors(levelOne.roomsArray[1], BORDER_WIDTH, 'red');
+	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
 }
 
 function setupLevels(){
