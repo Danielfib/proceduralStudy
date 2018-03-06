@@ -11,10 +11,7 @@ observations:
 - border being drawn multiple times, when it is only needed one
 */
 var canvas, ctx;
-var levelOne = new level(4); //the argument to level is numberOfRooms
-//create linear example of rooms in level one(4 levels, left to right)
-levelOne.createLinearExample();
-var playerOne = new player();
+var levelOne, playerOne;
 
 //how large the wall is(so the player doesnt leave the room)
 const BORDER_WIDTH = 40;
@@ -22,6 +19,9 @@ const BORDER_WIDTH = 40;
 window.onload = function() {
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
+
+	setupLevels();
+	setupPlayers();	
 
 	var fps = 30;
 	//run this function this often
@@ -57,5 +57,15 @@ function drawAll(){
 	drawDoors(levelOne.roomsArray[1], BORDER_WIDTH, 'red');
 }
 
+function setupLevels(){
+	levelOne = new level(4); //the argument to level is numberOfRooms
 
+	//setup levels matrices
+	levelOne.setupInitialMatrices(5, 5);
+	levelOne.createCrossExample();
+}
+
+function setupPlayers(){
+	playerOne = new player();
+}
 
