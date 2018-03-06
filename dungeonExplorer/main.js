@@ -1,10 +1,9 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
-	- Check collision
-	- switch rooms 
+	- make it switch rooms 
+	- make it create non-linear level and transitions nicelly
 
-- make 1 map and tilemap it
-- make an matrice of tilemaps
+- make an matrice of levels
 - make map transition
 - plan PG
 
