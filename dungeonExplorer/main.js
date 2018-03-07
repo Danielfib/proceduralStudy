@@ -1,9 +1,6 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
-	- make it switch rooms (change player current room 
-							and make it so that	it is drawn the current room. 
-							And make player set postion on room based on entered door)
-	- make it create non-linear level and transitions nicelly
+	- make it create non-linear level and transitions nicelly (make level creation)
 
 - make an matrice of levels
 - make map transition
@@ -33,15 +30,11 @@ window.onload = function() {
 function updateAll(){
 	moveAll();
 	drawAll();
-
-	//debug:
-	//levelOne.intArray[playerOne.currentRoomCoordX][playerOne.currentRoomCordY] = 2;
 }
 
 function moveAll(){
 	movePlayers();
 	playerOne.currentRoom.checkDoorCollision(playerOne);
-	//checkDoorCollision(playerOne);
 }
 
 function movePlayers(){
@@ -56,9 +49,8 @@ function drawAll(){
 	//player (a ball, for now)
 	colorCircle(playerOne.x, playerOne.y, 10, 'red');
 
-	//border (the rooms' walls)
+	//border (the rooms' walls) and doors
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
-	
 	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
 }
 
@@ -67,7 +59,7 @@ function setupLevels(){
 
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix
-	levelOne.createCrossExample();
+	levelOne.createCrossExample(); //rooms disposal used for now
 }
 
 function setupPlayers(){
