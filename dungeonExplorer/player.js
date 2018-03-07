@@ -1,4 +1,5 @@
 const PLAYER_MOVESPEED = 10;
+const DISTANCE_AFTER_DOOR = 50;
 
 function player(){
 	this.x = 400;
@@ -77,6 +78,10 @@ function player(){
 				this.currentRoomCoordX--;
 				this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
 				console.log("entered room to the left");
+
+				//now, set player position to next room's door
+				this.x = canvas.width - DISTANCE_AFTER_DOOR;
+				this.y = 300;
 			}
 
 
