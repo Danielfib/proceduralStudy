@@ -33,6 +33,9 @@ window.onload = function() {
 function updateAll(){
 	moveAll();
 	drawAll();
+
+	//debug:
+	//levelOne.intArray[playerOne.currentRoomCoordX][playerOne.currentRoomCordY] = 2;
 }
 
 function moveAll(){
