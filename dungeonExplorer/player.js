@@ -5,7 +5,8 @@ function player(){
 	this.y = 300;	
 
 	this.currentLevel = levelOne;
-	this.currentRoomCoord = 1;
+	this.currentRoomCoordX = 2;
+	this.currentRoomCoordY = 2;
 	//this.currentRoom = levelOne.roomsArray[this.currentRoomCoord]; //player for now starts at second room
 	this.currentRoom = levelOne.roomsArray[2][2]; //player for now starts at second room in cross example
 
@@ -71,6 +72,14 @@ function player(){
 		//west = 0, east = 1, north = 2, south = 3
 		if(doorEntered == 0){
 			console.log("entered West door");
+			if(this.currentLevel.intArray[this.currentRoomCoordX-1][this.currentRoomCoord] != 0){
+				//if there is a room to the left
+				this.currentRoomCoordX--;
+				this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
+				console.log("entered room to the left");
+			}
+
+
 		} else if (doorEntered == 1){
 			console.log("entered East door");
 		} else if (doorEntered == 2){
