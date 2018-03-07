@@ -1,6 +1,8 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
-	- make it switch rooms 
+	- make it switch rooms (change player current room 
+							and make it so that	it is drawn the current room. 
+							And make player set postion on room based on entered door)
 	- make it create non-linear level and transitions nicelly
 
 - make an matrice of levels
@@ -61,7 +63,7 @@ function setupLevels(){
 	levelOne = new level(4); //the argument to level is numberOfRooms
 
 	//setup levels matrices
-	levelOne.setupInitialMatrices(5, 5);
+	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix
 	levelOne.createCrossExample();
 }
 
