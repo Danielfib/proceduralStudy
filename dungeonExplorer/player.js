@@ -70,56 +70,39 @@ function player(){
 	}
 
 	this.switchRooms = function(doorEntered){
-		//console.log("oi" + doorEntered);
 		//west = 0, east = 1, north = 2, south = 3
-		if(doorEntered == 0
-			&& this.checkRoomExistence(0, -1)){
-			
+		if(doorEntered == 0	&& this.checkRoomExistence(0, -1)){			
 			console.log("entered West door");			
 			//if there is a room to the left, change the player current room
-			this.currentRoomCoordY--;
-			this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
-			console.log("entered room to the left");
-
-			//now, set player position to next room's door
-			this.x = canvas.width - DISTANCE_AFTER_DOOR;
-			
-		} else if (doorEntered == 1
-			&& this.checkRoomExistence(0, 1)){
-			
+			this.changePlayerCurrentRoom(0, -1);
+			//now, set player position next to passed door
+			this.x = canvas.width - DISTANCE_AFTER_DOOR;			
+		} else if (doorEntered == 1	&& this.checkRoomExistence(0, 1)){			
 			console.log("entered East door");
 			//if there is a room to the right, change the player current room
-			this.currentRoomCoordY++;
-			this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
-			console.log("entered room to the right");
-
-			//now, set player position to next room's door
+			this.changePlayerCurrentRoom(0, 1);
+			//now, set player position next to passed door
 			this.x = DISTANCE_AFTER_DOOR;
-
-		} else if (doorEntered == 2
-			&& this.checkRoomExistence(-1, 0)){
-
+		} else if (doorEntered == 2	&& this.checkRoomExistence(-1, 0)){
 			console.log("entered North door");
 			//if there is a room to the north, change the player current room
-			this.currentRoomCoordX--;
-			this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
-			console.log("entered room to the north");
-
-			//now, set player position to next room's door
+			this.changePlayerCurrentRoom(-1, 0);
+			//now, set player position next to passed door
 			this.y = canvas.height - DISTANCE_AFTER_DOOR;
-
-		} else if (doorEntered == 3
-			&& this.checkRoomExistence(+1, 0)){
-			
+		} else if (doorEntered == 3 && this.checkRoomExistence(+1, 0)){			
 			console.log("entered South door");
 			//if there is a room to the south, change the player current room
-			this.currentRoomCoordX++;
-			this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
-			console.log("entered room to the south");
-
-			//now, set player position to next room's door
+			this.changePlayerCurrentRoom(1, 0);
+			//now, set player position next to passed door
 			this.y = DISTANCE_AFTER_DOOR;
 		}
+	}
+
+	this.changePlayerCurrentRoom = function(deltaX, deltaY){
+		this.currentRoomCoordX += deltaX;
+		this.currentRoomCoordY += deltaY;
+
+		this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
 	}
 
 	this.checkRoomExistence = function(deltaX, deltaY){
