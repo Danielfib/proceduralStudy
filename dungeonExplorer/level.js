@@ -89,24 +89,32 @@ function level(numberOfRooms, rows, cols, difficulty){
 				return false;
 			} else if (this.intArray[currentX][currentY-1] == 0){
 				return true;
+			} else { 
+				return false;
 			}
 		} else if (dir == 1){ //see if there is a room to the east
 			if(currentY == (this.cols-1)){
 				return false;
 			} else if (this.intArray[currentX][currentY+1] == 0){
 				return true;
+			} else {
+				return false;
 			}
 		} else if (dir == 2){ //see if there is a room to the north
 			if(currentX == 0){
 				return false;
 			} else if (this.intArray[currentX-1][currentY] == 0){
 				return true;
+			} else {
+				return false;
 			}
 		} else if (dir == 3){ //see if there is a room to the south
 			if(currentX == (this.rows-1)){
 				return false;
 			} else if (this.intArray[currentX+1][currentY] == 0){
 				return true;
+			} else {
+				return false;
 			}
 		} 
 	}
