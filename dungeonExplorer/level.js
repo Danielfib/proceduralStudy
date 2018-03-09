@@ -51,7 +51,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 
 		for(var c = 0; c < numRooms; c++){
 			var newRoomDirection = Math.random();
-			//console.log(newRoomDirection);
+			console.log(newRoomDirection);
 			
 			if (newRoomDirection < 0.25 && this.checkRoomExistOnDir(0, xRCoord, yRCoord)){ 
 				//create a room to the west
@@ -66,6 +66,8 @@ function level(numberOfRooms, rows, cols, difficulty){
 				//create room to the south
 			}
 		}
+
+		this.placeRoomsDoors();
 	}
 
 	this.checkRoomExistOnDir = function(dir, currentX , currentY){
@@ -77,6 +79,31 @@ function level(numberOfRooms, rows, cols, difficulty){
 			}
 		} else if (dir == 1){ //see if there is a room to the east
 
+		}
+	}
+
+	this.placeRoomsDoors = function(){
+		/*This function is benefiting from matching doors:
+		  if room A is neighbour to room B, then it set room A door to room B,
+		  but also room B door to room A*
+
+		  So, the loop [i][j] doesnt get to the right and bottom edges, because
+		  they were checked by the previous loop*/
+		for (var i = 0; i < this.rows-1; i++){
+			for (var j = 0; j < this.cols-1; j++){
+				if(this.intArray[i][j] != 0){
+					//if room exists, check its neighbours and place doors
+					if(this.intArray[i+1][j] != 0){//south neighbour
+						//sets the pair of mathing doors, to optmize function (/2) (check down-up and left-down)
+						this.roomsArray[i][j].hasSouthDoor = true;
+						this.roomsArray[i+1][j].hasNorthDoor = true;
+					}
+					if(this.intArray[i][j+1] != 0){//east neighbour
+						this.roomsArray[i][j].hasEastDoor = true;
+						this.roomsArray[i][j+1].hasWestDoor = true;
+					}
+				}
+			}
 		}
 	}
 
