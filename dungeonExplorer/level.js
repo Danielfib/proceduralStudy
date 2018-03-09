@@ -69,6 +69,9 @@ function level(numberOfRooms, rows, cols, difficulty){
 				this.roomsArray[xRCoord][yRCoord+1] = new room(false, false, false, false);
 			} else if (newRoomDirection < 0.75 && this.checkRoomExistOnDir(2, xRCoord, yRCoord)){
 				//create room to the north
+				//if there is no room to the north, nor we're on upper edge, create one
+				this.intArray[xRCoord-1][yRCoord] = 1;
+				this.roomsArray[xRCoord-1][yRCoord] = new room(false, false, false, false);
 			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){ 
 				//create room to the south
 			}
@@ -90,7 +93,13 @@ function level(numberOfRooms, rows, cols, difficulty){
 			} else if (this.intArray[currentX][currentY+1] == 0){
 				return true;
 			}
-		}
+		} else if (dir == 2){ //see if there is a room to the north
+			if(currentX == (0)){
+				return false;
+			} else if (this.intArray[currentX-1][currentY] == 0){
+				return true;
+			}
+		} 
 	}
 
 	this.placeRoomsDoors = function(){
