@@ -1,10 +1,10 @@
 //the level is the set of rooms, that is, the room matrice
-function level(numberOfRooms){
+function level(numberOfRooms, rows, cols){
 	this.numberOfRooms = numberOfRooms;
 	this.roomsArray;
 	this.intArray;
-	this.rows = 5;
-	this.cols = 5;
+	this.rows = rows;
+	this.cols = cols;
 
 	this.createLinearExample = function(){
 		//for now, only creating passage to left and right
