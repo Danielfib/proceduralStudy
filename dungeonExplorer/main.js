@@ -62,7 +62,8 @@ function setupLevels(){
 
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix
-	levelOne.createCrossExample(); //rooms disposal used for now
+	//levelOne.createCrossExample(); //rooms disposal used for now
+	levelOne.generateRandomLevel();
 }
 
 function setupPlayers(){

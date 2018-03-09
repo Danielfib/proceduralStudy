@@ -5,7 +5,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 	this.intArray;
 	this.rows = rows;
 	this.cols = cols;
-	this. difficulty = difficulty;
+	this.difficulty = difficulty;
 
 	this.createLinearExample = function(){
 		//for now, only creating passage to left and right
@@ -39,8 +39,45 @@ function level(numberOfRooms, rows, cols, difficulty){
 		this.intArray[3][2] = 5;
 	}
 
-	this.generateLevel = function(difficulty){
-		
+	this.generateRandomLevel = function(){
+		var numRooms = this.difficulty*3;
+
+		//getting a random number from 0 to # of rows and cols
+		var xRCoord = Math.floor(Math.random() * (this.rows-1));
+		var yRCoord = Math.floor(Math.random() * (this.cols-1));
+		//first room
+		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false); 
+		this.intArray[xRCoord][yRCoord] = 1;
+
+		for(var c = 0; c < numRooms; c++){
+			var newRoomDirection = Math.random();
+			//console.log(newRoomDirection);
+			
+			if (newRoomDirection < 0.25 && this.checkRoomExistOnDir(0, xRCoord, yRCoord)){ 
+				//create a room to the west
+				//if there is no room to the west, nor we're on left edge, create one
+				this.intArray[xRCoord][yRCoord-1] = 1;
+				this.roomsArray[xRCoord][yRCoord-1] = new room(false, false, false, false);
+			} else if (newRoomDirection < 0.5 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){
+				//create room to the east
+			} else if (newRoomDirection < 0.75 && this.checkRoomExistOnDir(2, xRCoord, yRCoord)){
+				//create room to the north
+			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){ 
+				//create room to the south
+			}
+		}
+	}
+
+	this.checkRoomExistOnDir = function(dir, currentX , currentY){
+		if (dir == 0){ //see if there is a room to the west
+			if(currentY == 0){
+				return false;
+			} else if (this.intArray[currentX][currentY-1] == 0){
+				return true;
+			}
+		} else if (dir == 1){ //see if there is a room to the east
+
+		}
 	}
 
 	this.setupInitialMatrices = function(numRows, numCols){
