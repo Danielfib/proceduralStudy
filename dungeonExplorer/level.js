@@ -74,6 +74,9 @@ function level(numberOfRooms, rows, cols, difficulty){
 				this.roomsArray[xRCoord-1][yRCoord] = new room(false, false, false, false);
 			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){ 
 				//create room to the south
+				//if there is no room to the south, nor we're on bottom edge, create one
+				this.intArray[xRCoord+1][yRCoord] = 1;
+				this.roomsArray[xRCoord+1][yRCoord] = new room(false, false, false, false);
 			}
 		}
 
@@ -94,9 +97,15 @@ function level(numberOfRooms, rows, cols, difficulty){
 				return true;
 			}
 		} else if (dir == 2){ //see if there is a room to the north
-			if(currentX == (0)){
+			if(currentX == 0){
 				return false;
 			} else if (this.intArray[currentX-1][currentY] == 0){
+				return true;
+			}
+		} else if (dir == 3){ //see if there is a room to the south
+			if(currentX == (this.rows-1)){
+				return false;
+			} else if (this.intArray[currentX+1][currentY] == 0){
 				return true;
 			}
 		} 
