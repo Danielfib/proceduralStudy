@@ -1,15 +1,15 @@
 const PLAYER_MOVESPEED = 10;
 const DISTANCE_AFTER_DOOR = 50;
 
-function player(){
+function player(initialX, initialY){
 	this.x = 400;
 	this.y = 300;	
 
 	this.currentLevel = levelOne;
-	this.currentRoomCoordX = 2;
-	this.currentRoomCoordY = 2;
+	this.currentRoomCoordX = initialX;
+	this.currentRoomCoordY = initialY;
 	//this.currentRoom = levelOne.roomsArray[this.currentRoomCoord]; //player for now starts at second room
-	this.currentRoom = levelOne.roomsArray[2][2]; //player for now starts at second room in cross example
+	this.currentRoom = levelOne.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY]; //player for now starts at second room in cross example
 
 	this.keyHeld_North = false;
 	this.keyHeld_South = false;

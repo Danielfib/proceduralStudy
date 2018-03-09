@@ -67,6 +67,6 @@ function setupLevels(){
 }
 
 function setupPlayers(){
-	playerOne = new player();
+	playerOne = new player(levelOne.playerInitialX, levelOne.playerInitialY);
 }
 

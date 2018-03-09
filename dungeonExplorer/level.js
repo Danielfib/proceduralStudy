@@ -7,6 +7,9 @@ function level(numberOfRooms, rows, cols, difficulty){
 	this.cols = cols;
 	this.difficulty = difficulty;
 
+	this.playerInitialX;
+	this.playerInitialY;
+
 	this.createLinearExample = function(){
 		//for now, only creating passage to left and right
 		for (var i = 0; i < numberOfRooms; i++){
@@ -48,6 +51,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 		//first room
 		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false); 
 		this.intArray[xRCoord][yRCoord] = 1;
+		this.setPlayerInitialPosition(xRCoord, yRCoord);
 
 		for(var c = 0; c < numRooms; c++){
 			var newRoomDirection = Math.random();
@@ -105,6 +109,11 @@ function level(numberOfRooms, rows, cols, difficulty){
 				}
 			}
 		}
+	}
+
+	this.setPlayerInitialPosition = function(x, y){
+		this.playerInitialX = x;
+		this.playerInitialY = y;
 	}
 
 	this.setupInitialMatrices = function(numRows, numCols){
