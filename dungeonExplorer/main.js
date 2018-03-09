@@ -1,6 +1,7 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
-	- make it create non-linear level and transitions nicelly (make level creation)
+	- rooms are being randomly created, but only on cross to the inital room
+	- make it go beyond
 
 - make an matrice of levels
 - make map transition
