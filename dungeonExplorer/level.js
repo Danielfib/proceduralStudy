@@ -60,27 +60,30 @@ function level(numberOfRooms, rows, cols, difficulty){
 			if (newRoomDirection < 0.25 && this.checkRoomExistOnDir(0, xRCoord, yRCoord)){ 
 				//create a room to the west
 				//if there is no room to the west, nor we're on left edge, create one
-				this.intArray[xRCoord][yRCoord-1] = 1;
-				this.roomsArray[xRCoord][yRCoord-1] = new room(false, false, false, false);
+				this.placeNewRoom(xRCoord, yRCoord-1);
 			} else if (newRoomDirection < 0.5 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){
 				//create room to the east
 				//if there is no room to the east, nor we're on right edge, create one
-				this.intArray[xRCoord][yRCoord+1] = 1;
-				this.roomsArray[xRCoord][yRCoord+1] = new room(false, false, false, false);
+				this.placeNewRoom(xRCoord, yRCoord+1);
 			} else if (newRoomDirection < 0.75 && this.checkRoomExistOnDir(2, xRCoord, yRCoord)){
 				//create room to the north
 				//if there is no room to the north, nor we're on upper edge, create one
-				this.intArray[xRCoord-1][yRCoord] = 1;
-				this.roomsArray[xRCoord-1][yRCoord] = new room(false, false, false, false);
+				this.placeNewRoom(xRCoord-1, yRCoord);
 			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){ 
 				//create room to the south
 				//if there is no room to the south, nor we're on bottom edge, create one
-				this.intArray[xRCoord+1][yRCoord] = 1;
-				this.roomsArray[xRCoord+1][yRCoord] = new room(false, false, false, false);
+				this.placeNewRoom(xRCoord+1, yRCoord);
 			}
 		}
 
 		this.placeRoomsDoors();
+	}
+
+	this.placeNewRoom = function(x, y){
+		//this method, for now, only places new rooms, but to make the PG go beyon cross,
+		//perhaps I need to make it check the rooms 'edge', and advance till the edge room, then create one next to it.
+		this.intArray[x][y] = 1;
+		this.roomsArray[x][y] = new room(false, false, false, false);
 	}
 
 	this.checkRoomExistOnDir = function(dir, currentX , currentY){
