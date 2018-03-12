@@ -10,6 +10,11 @@ function level(numberOfRooms, rows, cols, difficulty){
 	this.playerInitialX;
 	this.playerInitialY;
 
+	this.eastRoomsFromStart = 0;
+	this.westRoomsFromStart = 0;
+	this.northRoomsFromStart = 0;
+	this.southRoomsFromStart = 0;
+
 	this.createLinearExample = function(){
 		//for now, only creating passage to left and right
 		for (var i = 0; i < numberOfRooms; i++){

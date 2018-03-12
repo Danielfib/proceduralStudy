@@ -1,7 +1,7 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
 	- rooms are being randomly created, but only on cross to the inital room
-	- make it go beyond (use counters to extend borders)
+	- make it go beyond (use counters to extend borders, and use it on checking and creating)
 
 - make an matrice of levels
 - make map transition
