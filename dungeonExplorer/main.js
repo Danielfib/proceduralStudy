@@ -15,8 +15,9 @@ var levelOne, playerOne;
 
 //how large the wall is(so the player doesnt leave the room)
 const BORDER_WIDTH = 40;
-const LEVEL_ONE_ROWS = 5;
-const LEVEL_ONE_COLS = 5;
+//these two will always remain the same for now
+const LEVEL_ROWS = 5;
+const LEVEL_COLS = 5;
 const LEVEL_ONE_DIFFICULTY = 2;
 
 window.onload = function() {
@@ -59,7 +60,7 @@ function drawAll(){
 }
 
 function setupLevels(){
-	levelOne = new level(4, LEVEL_ONE_ROWS, LEVEL_ONE_COLS, LEVEL_ONE_DIFFICULTY); //the argument to level is numberOfRooms
+	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY); //the argument to level is numberOfRooms
 
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix

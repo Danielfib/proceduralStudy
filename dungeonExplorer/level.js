@@ -81,7 +81,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 				//if there is no room to the north, nor we're on upper edge, create one
 				this.placeNewRoom(xRCoord + (-1 * this.northRoomsFromStart), yRCoord);
 				this.northRoomsFromStart++;
-			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(1, xRCoord, yRCoord)){ 
+			} else if (newRoomDirection < 1 && this.checkRoomExistOnDir(3, xRCoord, yRCoord)){ 
 				console.log("room to the south");
 				//create room to the south
 				//if there is no room to the south, nor we're on bottom edge, create one
@@ -103,7 +103,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 
 	this.checkRoomExistOnDir = function(dir, currentX , currentY){
 		if (dir == 0){ //see if there is a room to the west
-			if(currentY == 0){
+			if((currentY - this.westRoomsFromStart) <= 0){ //cheking western border
 				return false;
 			} else if (this.intArray[currentX][currentY-1] == 0){
 				return true;
@@ -111,7 +111,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 				return false;
 			}
 		} else if (dir == 1){ //see if there is a room to the east
-			if(currentY == (this.cols-1)){
+			if((currentY + this.eastRoomsFromStart) >= LEVEL_COLS){ //checking eastern border
 				return false;
 			} else if (this.intArray[currentX][currentY+1] == 0){
 				return true;
@@ -127,7 +127,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 				return false;
 			}
 		} else if (dir == 3){ //see if there is a room to the south
-			if(currentX == (this.rows-1)){
+			if((currentX + this.southRoomsFromStart) >= LEVEL_ROWS){
 				return false;
 			} else if (this.intArray[currentX+1][currentY] == 0){
 				return true;
