@@ -1,7 +1,10 @@
 /* NEXT STEPS:
 Doors are being checked and visually displayed according to its presence in a room
-	- rooms are being randomly created, but only on cross to the inital room
-	- make it go beyond (use counters to extend borders, and use it on checking and creating)
+	- rooms are being randomly created, but on disformed cross example
+	- how to make it create rooms on diagonal? 
+	- maybe changing my algorithm to use 2 counters insteado of one?
+	- maybe use quadrant algorithm, only to create diagonal ones, and leave the cross creation as it is
+	  this algorithm may use 2 counters, to choose the quadrant, and the cross might be lixe the axis.
 
 - make an matrice of levels
 - make map transition
