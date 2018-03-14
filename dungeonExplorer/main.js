@@ -7,7 +7,7 @@ ROOM GENERATION:
 	  this algorithm may use 2 counters, to choose the quadrant, and the cross might be lixe the axis.
 
 MINIMAP / DEBBUGING:
-	- make the second canvas show the rooms, highlighting the one the player is in
+	- enbeauty the minimap
 	- zoom in, and make the canvas center follow the room the player is in?
 	- after, this minimap must not be able to show all the rooms
 

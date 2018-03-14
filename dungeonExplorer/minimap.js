@@ -1,3 +1,4 @@
+const MINIMAP_BORDER = 5;
 var minimap, minimapCtx;
 
 function setupMinimap(level){
@@ -11,7 +12,7 @@ function setupMinimap(level){
 
 function colorRectMinimap(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
 	minimapCtx.fillStyle = fillColor;
-	minimapCtx.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
+	minimapCtx.fillRect(topLeftX + MINIMAP_BORDER, topLeftY + MINIMAP_BORDER, boxWidth - MINIMAP_BORDER, boxHeight - MINIMAP_BORDER);
 }
 
 function drawMinimapRooms(level){
