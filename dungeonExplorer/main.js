@@ -6,6 +6,8 @@ ROOM GENERATION:
 	- maybe use quadrant algorithm, only to create diagonal ones, and leave the cross creation as it is
 	  this algorithm may use 2 counters, to choose the quadrant, and the cross might be lixe the axis.
 
+	- BUT, maybe it is a better option to make that each room has a chance of creating an adjacent one.
+
 MINIMAP / DEBBUGING:
 	- enbeauty the minimap
 	- zoom in, and make the canvas center follow the room the player is in?
