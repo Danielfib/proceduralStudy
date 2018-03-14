@@ -6,6 +6,9 @@ function player(initialX, initialY){
 	this.y = 300;	
 
 	this.currentLevel = levelOne;
+	//setting initial position on level.intArray
+	this.currentLevel.intArray[initialX][initialY] = 2;
+	//current room coordinates for intArray and roomsArray
 	this.currentRoomCoordX = initialX;
 	this.currentRoomCoordY = initialY;
 	//this.currentRoom = levelOne.roomsArray[this.currentRoomCoord]; //player for now starts at second room
@@ -98,7 +101,16 @@ function player(initialX, initialY){
 		}
 	}
 
+	this.updatePlayerLocationOnLevel = function(deltaX, deltaY){
+		this.currentLevel.intArray[this.currentRoomCoordX][this.currentRoomCoordY] = 1;
+		this.currentLevel.intArray[this.currentRoomCoordX + deltaX][this.currentRoomCoordY + deltaY] = 2;
+
+	}
+
 	this.changePlayerCurrentRoom = function(deltaX, deltaY){
+		//first, update player location on int matrix:
+		this.updatePlayerLocationOnLevel(deltaX, deltaY);
+
 		this.currentRoomCoordX += deltaX;
 		this.currentRoomCoordY += deltaY;
 

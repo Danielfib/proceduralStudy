@@ -9,3 +9,7 @@ function colorRectMinimap(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
 	minimapCtx.fillStyle = fillColor;
 	minimapCtx.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
 }
+
+function drawMinimapRooms(player){
+	
+}
