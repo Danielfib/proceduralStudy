@@ -34,7 +34,7 @@ window.onload = function() {
 
 	setupLevels();
 	setupPlayers();
-	setupMinimap();	
+	setupMinimap(levelOne); //static, for now	
 
 	var fps = 30;
 	//run this function this often
@@ -67,8 +67,7 @@ function drawAll(){
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
 	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
 
-	//minimap
-	colorRectMinimap(0, 0, minimap.width, minimap.height, 'black');
+	
 }
 
 function setupLevels(){

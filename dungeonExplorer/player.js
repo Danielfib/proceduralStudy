@@ -106,6 +106,8 @@ function player(initialX, initialY){
 		this.currentLevel.intArray[this.currentRoomCoordX][this.currentRoomCoordY] = 1;
 		this.currentLevel.intArray[this.currentRoomCoordX + deltaX][this.currentRoomCoordY + deltaY] = 2;
 
+		//and everytime the intArray changes, we change the view on the minimap:
+		drawMinimapRooms(this.currentLevel);
 	}
 
 	this.changePlayerCurrentRoom = function(deltaX, deltaY){

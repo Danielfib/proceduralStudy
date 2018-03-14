@@ -49,7 +49,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 	}
 
 	this.generateRandomLevel = function(){
-		var numRooms = this.difficulty*3;
+		var numRooms = this.difficulty*2 + 1;
 
 		//getting a random number from 0 to # of rows and cols
 		var xRCoord = Math.floor(Math.random() * (this.rows-1));
