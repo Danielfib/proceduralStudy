@@ -1,14 +1,18 @@
 /* NEXT STEPS:
-Doors are being checked and visually displayed according to its presence in a room
+ROOM GENERATION:
 	- rooms are being randomly created, but on disformed cross example
 	- how to make it create rooms on diagonal? 
 	- maybe changing my algorithm to use 2 counters insteado of one?
 	- maybe use quadrant algorithm, only to create diagonal ones, and leave the cross creation as it is
 	  this algorithm may use 2 counters, to choose the quadrant, and the cross might be lixe the axis.
 
-- make an matrice of levels
-- make map transition
-- plan PG
+MINIMAP / DEBBUGING:
+	- create a second canvas, a smaller one, to serve ad minimap and debugging tool
+	- after, this minimap must not be able to show all the rooms
+
+COMBAT:
+	- make shots
+	- make enemies (stand stills at first)
 
 observations:
 - border being drawn multiple times, when it is only needed one
@@ -28,7 +32,8 @@ window.onload = function() {
 	ctx = canvas.getContext('2d');
 
 	setupLevels();
-	setupPlayers();	
+	setupPlayers();
+	setupMinimap();	
 
 	var fps = 30;
 	//run this function this often
@@ -60,6 +65,9 @@ function drawAll(){
 	//border (the rooms' walls) and doors
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
 	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
+
+	//minimap
+	colorRectMinimap(0, 0, minimap.width, minimap.height, 'black');
 }
 
 function setupLevels(){
