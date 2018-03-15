@@ -8,7 +8,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 	this.difficulty = difficulty;
 
 	this.lvlNumber = lvlNumber;
-	lvlArray[this.lvlNumber] = this; //maybe this attribution doesnt change as this level does?
+	lvlArray[this.lvlNumber] = this;//this works (levelArray[n] changes as lvl does)
 
 	this.playerInitialX;
 	this.playerInitialY;
@@ -192,7 +192,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 		for (var i = 0; i < numRows; i++){
 			var columns = [];
 			for(var j = 0; j < numCols; j++){
-				columns[j] = new room(false, false, false, false, i, j, this); //0 is initial value
+				columns[j] = new room(false, false, false, false, i, j, this.lvlNumber); //0 is initial value
 			}
 			arr2[i] = columns;
 		}
