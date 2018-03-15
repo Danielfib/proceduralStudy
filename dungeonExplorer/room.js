@@ -1,6 +1,6 @@
 function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level) {
-	this.xMatrix = x;
-	this.yMatrix = y;
+	this.x = x;
+	this.y = y;
 	this.levelNumber = level; //using index to lvlArray
 	this.hasWestDoor = hasWestDoor;
 	this.hasEastDoor = hasEastDoor;
@@ -47,19 +47,21 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	this.createAdjacentRoom = function(){ //method extraction?
 		//to be called on room creation
 		//will check all for direction and maybe create a room on each one, if there's none in that direction
-		if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > adjRoomChance){//has no room to the west
+		
+		if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
 			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
 		}
-		if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > adjRoomChance){//has no room to the east
+		if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
 			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
 		}
-		if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > adjRoomChance){//has no room to the north
+		if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
 			lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
 		}
-		if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > adjRoomChance){//has no room to the south
+		if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
 			lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
 		}
 
 	}
+	this.createAdjacentRoom();
 
 }
