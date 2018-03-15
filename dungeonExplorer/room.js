@@ -1,4 +1,6 @@
-function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor) {
+function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y) {
+	this.xMatrix = x;
+	this.yMatrix = y;
 	this.hasWestDoor = hasWestDoor;
 	this.hasEastDoor = hasEastDoor;
 	this.hasNorthDoor = hasNorthDoor;
@@ -38,4 +40,5 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor) {
 			player.switchRooms(3);
 		}		
 	}
+
 }

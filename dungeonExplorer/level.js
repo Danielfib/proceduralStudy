@@ -55,7 +55,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 		var xRCoord = Math.floor(Math.random() * (this.rows-1));
 		var yRCoord = Math.floor(Math.random() * (this.cols-1));
 		//first room
-		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false); 
+		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false, xRCoord, yRCoord); 
 		this.intArray[xRCoord][yRCoord] = 1;
 		this.setPlayerInitialPosition(xRCoord, yRCoord);
 		console.log(xRCoord, yRCoord);
@@ -98,7 +98,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 		//perhaps I need to make it check the rooms 'edge', and advance till the edge room, then create one next to it.
 		console.log("room in:", x, y);
 		this.intArray[x][y] = 1;
-		this.roomsArray[x][y] = new room(false, false, false, false);
+		this.roomsArray[x][y] = new room(false, false, false, false, x, y);
 	}
 
 	this.checkFurthestRoomExistOnDir = function(dir, currentX , currentY){
