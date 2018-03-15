@@ -1,7 +1,7 @@
 function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level) {
 	this.xMatrix = x;
 	this.yMatrix = y;
-	this.levelNumber = level; //maybe this is bad, memory recursion, high usage
+	this.levelNumber = level; //using index to lvlArray
 	this.hasWestDoor = hasWestDoor;
 	this.hasEastDoor = hasEastDoor;
 	this.hasNorthDoor = hasNorthDoor;
@@ -11,6 +11,8 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	this.isPlayerOnEastDoor = false;
 	this.isPlayerOnNorthDoor = false;
 	this.isPlayerOnSouthDoor = false;
+
+	this.adjRoomChance = 0.75; //it mean that random() has to get > 0.75 to happen
 
 	this.checkDoorCollision = function(player){
 		//function being called succesfully
@@ -42,14 +44,22 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 		}		
 	}
 
-	this.createAdjacentRoom = function(){
-		//this variable can decide either to create 2 adjacent rooms, just 1, or none
-		var hasAdjacentRoom = Math.random();
-
-		if (hasAdjacentRoom > 0.9){
-			//create two rooms
-		} else if (hasAdjacentRoom > 0.5){
-			//create one room
+	this.createAdjacentRoom = function(){ //method extraction?
+		//to be called on room creation
+		//will check all for direction and maybe create a room on each one, if there's none in that direction
+		if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > adjRoomChance){//has no room to the west
+			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
 		}
+		if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > adjRoomChance){//has no room to the east
+			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
+		}
+		if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > adjRoomChance){//has no room to the north
+			lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
+		}
+		if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > adjRoomChance){//has no room to the south
+			lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
+		}
+
 	}
+
 }

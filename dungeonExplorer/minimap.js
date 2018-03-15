@@ -16,7 +16,6 @@ function colorRectMinimap(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
 }
 
 function drawMinimapRooms(level){
-	console.log("heyy");
 	//for drawing the room arrangement fixed on 2nd canvas:
 	//divide secondCanvas.width and height by the rows and cols
 	//use te result to tile draw. Lets go!
@@ -30,11 +29,11 @@ function drawMinimapRooms(level){
 		for(var j = 0; j < level.cols; j++){
 			if(levelIntArray[i][j] == 1){
 				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, 'grey');
-				console.log("grey");
+				//console.log("grey");
 			}
 			if(levelIntArray[i][j] == 2){
 				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, 'white');	
-				console.log("white");
+				//console.log("white");
 			}
 		}
 	}
