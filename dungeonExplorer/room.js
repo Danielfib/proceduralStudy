@@ -1,6 +1,7 @@
-function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y) {
+function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level) {
 	this.xMatrix = x;
 	this.yMatrix = y;
+	this.level = level; //maybe this is bad, memory recursion, high usage
 	this.hasWestDoor = hasWestDoor;
 	this.hasEastDoor = hasEastDoor;
 	this.hasNorthDoor = hasNorthDoor;
@@ -41,4 +42,14 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y) {
 		}		
 	}
 
+	this.createAdjacentRoom = function(){
+		//this variable can decide either to create 2 adjacent rooms, just 1, or none
+		var hasAdjacentRoom = Math.random();
+
+		if (hasAdjacentRoom > 0.9){
+			//create two rooms
+		} else if (hasAdjacentRoom > 0.5){
+			//create one room
+		}
+	}
 }
