@@ -5,6 +5,8 @@ ROOM GENERATION:
 	- *: even over a room that alreay existed?
 	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary
 
+	- discover how doors are working: not every adjacent rooms has doors, but should they?
+
 MINIMAP / DEBBUGING:
 	- enbeauty the minimap
 	- zoom in, and make the canvas center follow the room the player is in?
