@@ -1,12 +1,9 @@
 /* NEXT STEPS:
 ROOM GENERATION:
-	- rooms are being randomly created, but on disformed cross example
-	- how to make it create rooms on diagonal? 
-	- maybe changing my algorithm to use 2 counters insteado of one?
-	- maybe use quadrant algorithm, only to create diagonal ones, and leave the cross creation as it is
-	  this algorithm may use 2 counters, to choose the quadrant, and the cross might be lixe the axis.
-
-	- BUT, maybe it is a better option to make that each room has a chance of creating an adjacent one.
+	- on each cross room creation, a new room in any direction(*) can be created, and from that one,
+	  again and again.
+	- *: even over a room that alreay existed?
+	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary
 
 MINIMAP / DEBBUGING:
 	- enbeauty the minimap

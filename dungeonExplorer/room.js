@@ -48,8 +48,8 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 		//to be called on room creation
 		//will check all for direction and maybe create a room on each one, if there's none in that direction
 		
-		//not yet checking borders
-		//bug: i am calling on every room creation, but i can only call after base matrix is done
+		//bug: i was calling on every room creation, but i can only call after base matrix is done
+		//this way, this method only get into action by the cross created rooms, and not the base null matrix rooms
 		if(this.x > 0 && this.x < 4 && this.y > 0 && this.y < 4 && lvlArray[this.levelNumber].isBaseMatrixDone){
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
