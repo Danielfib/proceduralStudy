@@ -19,6 +19,8 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 	this.northRoomsFromStart = 1;
 	this.southRoomsFromStart = 1;
 
+	this.isBaseMatrixDone = false;
+
 	this.createLinearExample = function(){
 		//for now, only creating passage to left and right
 		for (var i = 0; i < numberOfRooms; i++){
@@ -172,7 +174,9 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 
 	this.setupInitialMatrices = function(numRows, numCols){
 		this.intArray = this.setupIntMatrix(numRows, numCols);
-		this.roomsArray = this.setupRoomsMatrice(numRows, numCols);		
+		this.roomsArray = this.setupRoomsMatrice(numRows, numCols);	
+
+		this.isBaseMatrixDone = true;	
 	}
 
 	this.setupIntMatrix = function(numRows, numCols){

@@ -48,17 +48,21 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 		//to be called on room creation
 		//will check all for direction and maybe create a room on each one, if there's none in that direction
 		
-		if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
-			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
-		}
-		if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
-			lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
-		}
-		if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
-			lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
-		}
-		if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
-			lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
+		//not yet checking borders
+		//bug: i am calling on every room creation, but i can only call after base matrix is done
+		if(this.x > 0 && this.x < 4 && this.y > 0 && this.y < 4 && lvlArray[this.levelNumber].isBaseMatrixDone){
+			if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
+				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
+			}
+			if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
+				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
+			}
+			if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
+				lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
+			}
+			if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
+				lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
+			}
 		}
 
 	}
