@@ -22,6 +22,7 @@ observations:
 */
 var canvas, ctx;
 var levelOne, playerOne;
+var lvlArray = []; //maybe I will need it later, together with lvlNumber
 
 //how large the wall is(so the player doesnt leave the room)
 const BORDER_WIDTH = 40;
@@ -73,7 +74,8 @@ function drawAll(){
 }
 
 function setupLevels(){
-	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY); //the argument to level is numberOfRooms
+	//the last argument is level number
+	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY, 0); //the argument to level is numberOfRooms
 
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix

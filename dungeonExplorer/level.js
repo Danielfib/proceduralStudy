@@ -1,11 +1,14 @@
 //the level is the set of rooms, that is, the room matrice
-function level(numberOfRooms, rows, cols, difficulty){
+function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 	this.numberOfRooms = numberOfRooms;
 	this.roomsArray;
 	this.intArray;
 	this.rows = rows;
 	this.cols = cols;
 	this.difficulty = difficulty;
+
+	this.lvlNumber = lvlNumber;
+	lvlArray[this.lvlNumber] = this; //maybe this attribution doesnt change as this level does?
 
 	this.playerInitialX;
 	this.playerInitialY;
@@ -55,7 +58,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 		var xRCoord = Math.floor(Math.random() * (this.rows-1));
 		var yRCoord = Math.floor(Math.random() * (this.cols-1));
 		//first room
-		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false, xRCoord, yRCoord, this); 
+		this.roomsArray[xRCoord][yRCoord] = new room(false, false, false, false, xRCoord, yRCoord, this.lvlNumber); 
 		this.intArray[xRCoord][yRCoord] = 1;
 		this.setPlayerInitialPosition(xRCoord, yRCoord);
 		console.log(xRCoord, yRCoord);
@@ -98,7 +101,7 @@ function level(numberOfRooms, rows, cols, difficulty){
 		//perhaps I need to make it check the rooms 'edge', and advance till the edge room, then create one next to it.
 		console.log("room in:", x, y);
 		this.intArray[x][y] = 1;
-		this.roomsArray[x][y] = new room(false, false, false, false, x, y, this);
+		this.roomsArray[x][y] = new room(false, false, false, false, x, y, this.lvlNumber);
 	}
 
 	this.checkFurthestRoomExistOnDir = function(dir, currentX , currentY){

@@ -1,7 +1,7 @@
 function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level) {
 	this.xMatrix = x;
 	this.yMatrix = y;
-	this.level = level; //maybe this is bad, memory recursion, high usage
+	this.levelNumber = level; //maybe this is bad, memory recursion, high usage
 	this.hasWestDoor = hasWestDoor;
 	this.hasEastDoor = hasEastDoor;
 	this.hasNorthDoor = hasNorthDoor;
