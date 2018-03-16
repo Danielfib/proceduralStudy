@@ -46,7 +46,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 
 	this.createAdjacentRoom = function(){ //method extraction?
 		//to be called on room creation
-		//will check all for direction and maybe create a room on each one, if there's none in that direction
+		//will check all for direction and maybe create a room on each one, IF there's none on each direction
 		
 		//bug: i was calling on every room creation, but i can only call after base matrix is done
 		//this way, this method only get into action by the cross created rooms, and not the base null matrix rooms

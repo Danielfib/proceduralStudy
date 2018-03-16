@@ -1,8 +1,7 @@
 /* NEXT STEPS:
 ROOM GENERATION:
-	- on each cross room creation, a new room in any direction(*) can be created, and from that one,
+	- on each cross room creation, a new room in any direction can be created, and from that one,
 	  again and again.
-	- *: even over a room that alreay existed?
 	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary
 
 	- discover how doors are working: not every adjacent rooms has doors, but should they?
