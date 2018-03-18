@@ -1,3 +1,4 @@
+const ADJ_ROOM_CHANCE_DECREASE = 3;
 function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level) {
 	this.x = x;
 	this.y = y;
@@ -12,7 +13,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	this.isPlayerOnNorthDoor = false;
 	this.isPlayerOnSouthDoor = false;
 
-	this.adjRoomChance = 0.75; //it mean that random() has to get > 0.75 to happen
+	this.adjRoomChance = 0.65; //it mean that random() has to get > 0.75 to happen
 
 	this.checkDoorCollision = function(player){
 		//function being called succesfully
@@ -53,15 +54,19 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 		if(this.x > 0 && this.x < 4 && this.y > 0 && this.y < 4 && lvlArray[this.levelNumber].isBaseMatrixDone){
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
+				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
+				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
 				lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
+				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
 				lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
+				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
 		}
 

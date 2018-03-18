@@ -3,6 +3,7 @@ ROOM GENERATION:
 	- on each cross room creation, a new room in any direction can be created, and from that one,
 	  again and again.
 	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary
+	> Idea: for each adj room created, harder it gets to create again
 
 	- discover how doors are working: not every adjacent rooms has doors, but should they?
 
