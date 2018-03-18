@@ -5,7 +5,7 @@ ROOM GENERATION:
 	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary
 	> Idea: for each adj room created, harder it gets to create again
 
-	- discover how doors are working: not every adjacent rooms has doors, but should they?
+	- discover how doors are working: every adjacent rooms has doors, but should they?
 
 MINIMAP / DEBBUGING:
 	- enbeauty the minimap
