@@ -46,6 +46,7 @@ window.onload = function() {
 function updateAll(){
 	moveAll();
 	drawAll();
+	playerOne.shoot();
 }
 
 function moveAll(){

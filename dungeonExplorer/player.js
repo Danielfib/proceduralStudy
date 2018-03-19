@@ -78,6 +78,21 @@ function player(initialX, initialY){
 	
 	}
 
+	this.shoot = function(){//vai se repetir mt rapidamente?
+		if (this.keyHeld_ShootWest){
+			console.log("atirou para a esquerda");
+		}
+		if (this.keyHeld_ShootEast){
+			console.log("atirou para a direita");
+		}
+		if (this.keyHeld_ShootNorth){
+			console.log("atirou para cima");
+		}
+		if (this.keyHeld_ShootSouth){
+			console.log("atirou para baixo");
+		}
+	}
+
 	this.switchRooms = function(doorEntered){
 		//west = 0, east = 1, north = 2, south = 3
 		if(doorEntered == 0	&& this.checkRoomExistence(0, -1)){			
