@@ -40,14 +40,18 @@ window.onload = function() {
 	setupMinimap(levelOne); //static, for now	
 
 	var fps = 30;
-	//run this function this often
+	//run this function this often (milliseconds)
 	setInterval(updateAll, 1000/fps);
+	setInterval(shoot, PLAYER_SHOOT_SPEED);
+}
+
+function shoot(){
+	playerOne.shoot(); //being called here, it is too fast
 }
 
 function updateAll(){
 	moveAll();
 	drawAll();
-	playerOne.shoot(); //being called here, it is too fast
 }
 
 function moveAll(){

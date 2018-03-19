@@ -1,4 +1,5 @@
 const PLAYER_MOVESPEED = 10;
+const PLAYER_SHOOT_SPEED = 500; //maybe later descentralize it
 const DISTANCE_AFTER_DOOR = 50;
 
 function player(initialX, initialY){
