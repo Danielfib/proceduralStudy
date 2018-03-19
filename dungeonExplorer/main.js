@@ -55,6 +55,7 @@ function moveAll(){
 
 function movePlayers(){
 	playerOne.move();
+	//moveshots (and checks shots collision?)
 }
 
 
@@ -69,7 +70,7 @@ function drawAll(){
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
 	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
 
-	
+	//draw shots	
 }
 
 function setupLevels(){
