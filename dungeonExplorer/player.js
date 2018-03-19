@@ -19,10 +19,16 @@ function player(initialX, initialY){
 	this.keyHeld_West = false;
 	this.keyHeld_East = false;
 
+	//to prevent the player to move offscreen (stop on borders)
 	this.holdNorth = false;
 	this.holdSouth = false;	
 	this.holdWest = false;
 	this.holdEast = false;
+
+	this.keyHeld_ShootWest = false;
+	this.keyHeld_ShootEast = false;
+	this.keyHeld_ShootNorth = false;
+	this.keyHeld_ShootSouth = false;
 
 	this.move = function() {
 		var nextX = this.x;

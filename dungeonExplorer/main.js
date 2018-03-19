@@ -13,7 +13,7 @@ MINIMAP / DEBBUGING:
 	- after, this minimap must not be able to show all the rooms
 
 COMBAT:
-	- make shots
+	- make shots (just one shoot speed (one shoot per second))
 	- make enemies (stand stills at first)
 
 observations:
