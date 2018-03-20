@@ -15,26 +15,22 @@ function shot(x, y, direction, speed, damage, size, index){
 	this.arrayIndex = index;
 
 	this.moveShots = function(){
-		if(this.x > canvas.width || this.x < 0 
-		|| this.y > canvas.height || this.y < 0) { //if it gets offscreen
-			//remove shot from array
-		} else { //if is on the canvas area
-			if(direction == 1){
-				this.x -= this.speed;
-			} else if (direction == 2){
-				this.x += this.speed;
-			} else if (direction == 3){
-				this.y -= this.speed;
-			} else {
-				this.y += this.speed;
-			}
+		if(direction == 1){
+			this.x -= this.speed;
+		} else if (direction == 2){
+			this.x += this.speed;
+		} else if (direction == 3){
+			this.y -= this.speed;
+		} else {
+			this.y += this.speed;
 		}
 		this.removeIfInBorder();	
 	}
-
+		
+	
 	this.removeIfInBorder = function(){
-		if(this.y < BORDER_WIDTH || this.y > canvas.height - BORDER_WIDTH
-		|| this.x < BORDER_WIDTH || this.x > canvas.width - BORDER_WIDTH){
+		if(this.y < BORDER_WIDTH/2 || this.y > canvas.height - BORDER_WIDTH/2
+		|| this.x < BORDER_WIDTH/2 || this.x > canvas.width - BORDER_WIDTH/2){
 			//remove shot
 			shotsArray.splice(this.arrayIndex, 1);
 			contShots--;
