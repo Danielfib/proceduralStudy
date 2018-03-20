@@ -87,12 +87,18 @@ function player(initialX, initialY){
 		}
 		if (this.keyHeld_ShootEast){
 			console.log("atirou para a direita");
+			shotsArray[contShots] = new shot(this.x, this.y, 2, 5, 1, 5);
+			contShots++;
 		}
 		if (this.keyHeld_ShootNorth){
 			console.log("atirou para cima");
+			shotsArray[contShots] = new shot(this.x, this.y, 3, 5, 1, 5);
+			contShots++;
 		}
 		if (this.keyHeld_ShootSouth){
 			console.log("atirou para baixo");
+			shotsArray[contShots] = new shot(this.x, this.y, 4, 5, 1, 5);
+			contShots++;
 		}
 	}
 
