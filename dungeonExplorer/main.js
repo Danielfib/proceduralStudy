@@ -15,6 +15,7 @@ MINIMAP / DEBBUGING:
 COMBAT:
 	- make shots (for now just one shoot speed)
 		^make so that the shot is removed from array when gets to border
+			^it is working, but every second shot to get removed, removes all shots (figura out why)
 	- make enemies (stand stills at first)
 
 observations:
