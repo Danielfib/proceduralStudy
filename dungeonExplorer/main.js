@@ -61,6 +61,9 @@ function moveAll(){
 function movePlayers(){
 	playerOne.move();
 	//moveshots (and checks shots collision?)
+	for(var i = 0; i < contShots; i++){
+		shotsArray[i].moveShots();
+	}
 }
 
 
@@ -76,6 +79,9 @@ function drawAll(){
 	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
 
 	//draw shots	
+	for(var i = 0; i < contShots; i++){
+		colorCircle(shotsArray[i].x, shotsArray[i].y, shotsArray[i].size, 'grey');
+	}
 }
 
 function setupLevels(){

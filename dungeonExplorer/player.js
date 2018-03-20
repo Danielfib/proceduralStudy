@@ -82,6 +82,8 @@ function player(initialX, initialY){
 	this.shoot = function(){//vai se repetir mt rapidamente?
 		if (this.keyHeld_ShootWest){
 			console.log("atirou para a esquerda");
+			shotsArray[contShots] = new shot(this.x, this.y, 1, 5, 1, 5);
+			contShots++;
 		}
 		if (this.keyHeld_ShootEast){
 			console.log("atirou para a direita");
