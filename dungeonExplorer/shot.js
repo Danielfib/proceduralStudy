@@ -35,7 +35,8 @@ function shot(x, y, direction, speed, damage, size, index){
 			this.arrayIndex--;
 			contShots--;
 			//remove shot
-			shotsArray.splice(this.arrayIndex-1, 1);
+			//console.log(shotsArray.splice(this.arrayIndex, 1));
+			
 		}
 	}
 }
