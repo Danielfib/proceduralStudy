@@ -32,10 +32,12 @@ function shot(x, y, direction, speed, damage, size, index){
 		if(this.y < BORDER_WIDTH/2 || this.y > canvas.height - BORDER_WIDTH/2
 		|| this.x < BORDER_WIDTH/2 || this.x > canvas.width - BORDER_WIDTH/2){
 			//is removing all shots when removes the second, maybe because it doesnt update arrayIndex?
+				//^not upadting all the shots array indexes
+			//maybe the error is in these --?
 			this.arrayIndex--;
 			contShots--;
 			//remove shot
-			//console.log(shotsArray.splice(this.arrayIndex, 1));
+			console.log(shotsArray.splice(this.arrayIndex, 1));
 			
 		}
 	}
