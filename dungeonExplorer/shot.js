@@ -31,9 +31,11 @@ function shot(x, y, direction, speed, damage, size, index){
 	this.removeIfInBorder = function(){
 		if(this.y < BORDER_WIDTH/2 || this.y > canvas.height - BORDER_WIDTH/2
 		|| this.x < BORDER_WIDTH/2 || this.x > canvas.width - BORDER_WIDTH/2){
-			//remove shot
-			shotsArray.splice(this.arrayIndex, 1);
+			//is removing all shots when removes the second, maybe because it doesnt update arrayIndex?
+			this.arrayIndex--;
 			contShots--;
+			//remove shot
+			shotsArray.splice(this.arrayIndex-1, 1);
 		}
 	}
 }
