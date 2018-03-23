@@ -31,14 +31,20 @@ function shot(x, y, direction, speed, damage, size, index){
 	this.removeIfInBorder = function(){
 		if(this.y < BORDER_WIDTH/2 || this.y > canvas.height - BORDER_WIDTH/2
 		|| this.x < BORDER_WIDTH/2 || this.x > canvas.width - BORDER_WIDTH/2){
-			//is removing all shots when removes the second, maybe because it doesnt update arrayIndex?
-				//^not upadting all the shots array indexes
-			//maybe the error is in these --?
-			this.arrayIndex--;
-			contShots--;
-			//remove shot
-			console.log(shotsArray.splice(this.arrayIndex, 1));
-			
+			//bug: when fired only in one direction, shots are removed succesfully,
+				// but when fired in multiple directions at the same time, they kind of
+				//interfere with one another and removes one that should not be removed
+			this.manageShotRemoval();			
 		}
 	}
+			
+	 this.manageShotRemoval = function(){
+	 	//removing shot:
+	 	shotsArray.splice(this.arrayIndex, 1);
+	 	contShots--;		
+	 	//upadating all shots arrayIndexes:
+	 	for (var i = 0; i < contShots; i++){
+	 		shotsArray[i].arrayIndex--;
+	 	}		
+	 }
 }
