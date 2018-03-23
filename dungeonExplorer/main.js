@@ -14,7 +14,6 @@ MINIMAP / DEBBUGING:
 
 COMBAT:
 	- make shots (for now just one shoot speed)
-		^need to remove all shots when switching room
 		^bug: player is able to shoot on multiple directions at the same time
 	- make enemies (stand stills at first)
 
