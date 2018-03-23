@@ -47,7 +47,7 @@ function shot(x, y, direction, speed, damage, size, index){
 	 	contShots--;		
 	 	//upadating all shots arrayIndexes:
 	 	for (var i = 0; i < contShots; i++){
-	 		shotsArray[i].arrayIndex--;
+	 		shotsArray[i].arrayIndex = i;
 	 	}		
 	 }
 }
