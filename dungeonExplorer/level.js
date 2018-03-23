@@ -21,38 +21,6 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 
 	this.isBaseMatrixDone = false;
 
-	this.createLinearExample = function(){
-		//for now, only creating passage to left and right
-		for (var i = 0; i < numberOfRooms; i++){
-			if (i == 0){
-				//room at most left
-				this.roomsArray[i] = new room(false, true, false, false);
-			} else {
-				if (i == numberOfRooms-1){
-					//room at most right
-					this.roomsArray[i] = new room(true, false, false, false);
-				} else {
-					//room in between extremes
-					this.roomsArray[i] = new room(true, true, false, false);
-				}
-			}
-		}
-	}
-
-	this.createCrossExample = function(){
-		//with 5x5 matrice, statcly created, just to test room switching
-		this.roomsArray[2][2] = new room(true, true, true, true);//center room
-		this.intArray[2][2] = 1;
-		this.roomsArray[2][1] = new room(false, true, false, false);//left room
-		this.intArray[2][1] = 2;
-		this.roomsArray[2][3] = new room(true, false, false, false);//right room
-		this.intArray[2][3] = 3;
-		this.roomsArray[1][2] = new room(false, false, false, true);//upper room
-		this.intArray[1][2] = 4;
-		this.roomsArray[3][2] = new room(false, false, true, false);//bottom room
-		this.intArray[3][2] = 5;
-	}
-
 	this.generateRandomLevel = function(){
 		var numRooms = this.difficulty*2 + 1;
 
