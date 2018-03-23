@@ -30,6 +30,8 @@ function player(initialX, initialY){
 	this.keyHeld_ShootEast = false;
 	this.keyHeld_ShootNorth = false;
 	this.keyHeld_ShootSouth = false;
+	//bool to prevent player from shooting in multiple directions at the same time
+	this.isShooting = false;
 
 	this.move = function() {
 		var nextX = this.x;
@@ -80,22 +82,22 @@ function player(initialX, initialY){
 	}
 
 	this.shoot = function(){//vai se repetir mt rapidamente?
-		if (this.keyHeld_ShootWest){
+		if (this.keyHeld_ShootWest && !this.isShooting){
 			console.log("atirou para a esquerda");
 			shotsArray[contShots] = new shot(this.x, this.y, 1, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootEast){
+		if (this.keyHeld_ShootEast && !this.isShooting){
 			console.log("atirou para a direita");
 			shotsArray[contShots] = new shot(this.x, this.y, 2, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootNorth){
+		if (this.keyHeld_ShootNorth && !this.isShooting){
 			console.log("atirou para cima");
 			shotsArray[contShots] = new shot(this.x, this.y, 3, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootSouth){
+		if (this.keyHeld_ShootSouth && !this.isShooting){
 			console.log("atirou para baixo");
 			shotsArray[contShots] = new shot(this.x, this.y, 4, 5, 1, 5, contShots);
 			contShots++;
