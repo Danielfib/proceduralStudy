@@ -14,9 +14,8 @@ MINIMAP / DEBBUGING:
 
 COMBAT:
 	- make shots (for now just one shoot speed)
-		^make so that the shot is removed from array when gets to border
-			^it is working, but every second shot to get removed, removes all shots (figura out why)
 		^need to remove all shots when switching room
+		^bug: player is able to shoot on multiple directions at the same time
 	- make enemies (stand stills at first)
 
 observations:
