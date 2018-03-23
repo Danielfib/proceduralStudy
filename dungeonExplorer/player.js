@@ -138,6 +138,7 @@ function player(initialX, initialY){
 
 		//and everytime the intArray changes, we change the view on the minimap:
 		drawMinimapRooms(this.currentLevel);
+		contShots = 0;
 	}
 
 	this.changePlayerCurrentRoom = function(deltaX, deltaY){
@@ -148,6 +149,9 @@ function player(initialX, initialY){
 		this.currentRoomCoordY += deltaY;
 
 		this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
+
+		//clean shots from previous room:
+		shotsArray.splice(0, contShots);
 	}
 
 	this.checkRoomExistence = function(deltaX, deltaY){
