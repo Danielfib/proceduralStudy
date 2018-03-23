@@ -31,8 +31,6 @@ function keySet(keyEvent, setTo){
 	}
 
 	//SHOOT
-	//control player isShooting boolean:
-	playerOne.isShooting = setTo;
 	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
 		playerOne.keyHeld_ShootWest = setTo;
 	}

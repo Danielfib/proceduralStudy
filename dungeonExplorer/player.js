@@ -82,22 +82,22 @@ function player(initialX, initialY){
 	}
 
 	this.shoot = function(){//vai se repetir mt rapidamente?
-		if (this.keyHeld_ShootWest && !this.isShooting){
+		if (this.keyHeld_ShootWest && !this.keyHeld_ShootEast && !this.keyHeld_ShootNorth && !this.keyHeld_ShootSouth){
 			console.log("atirou para a esquerda");
 			shotsArray[contShots] = new shot(this.x, this.y, 1, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootEast && !this.isShooting){
+		if (this.keyHeld_ShootEast && !this.keyHeld_ShootWest && !this.keyHeld_ShootNorth && !this.keyHeld_ShootSouth){
 			console.log("atirou para a direita");
 			shotsArray[contShots] = new shot(this.x, this.y, 2, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootNorth && !this.isShooting){
+		if (this.keyHeld_ShootNorth && !this.keyHeld_ShootEast && !this.keyHeld_ShootWest && !this.keyHeld_ShootSouth){
 			console.log("atirou para cima");
 			shotsArray[contShots] = new shot(this.x, this.y, 3, 5, 1, 5, contShots);
 			contShots++;
 		}
-		if (this.keyHeld_ShootSouth && !this.isShooting){
+		if (this.keyHeld_ShootSouth  && !this.keyHeld_ShootEast && !this.keyHeld_ShootNorth && !this.keyHeld_ShootWest){
 			console.log("atirou para baixo");
 			shotsArray[contShots] = new shot(this.x, this.y, 4, 5, 1, 5, contShots);
 			contShots++;
