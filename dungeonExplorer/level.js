@@ -170,5 +170,4 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber){
 		}
 		return arr2;
 	}
-
 }

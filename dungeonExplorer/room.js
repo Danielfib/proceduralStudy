@@ -69,8 +69,6 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
 		}
-
 	}
 	this.createAdjacentRoom();
-
 }

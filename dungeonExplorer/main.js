@@ -14,7 +14,7 @@ MINIMAP / DEBBUGING:
 
 COMBAT:
 	- make shots (for now just one shoot speed)
-		^bug: player is able to shoot on multiple directions at the same time
+		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
 	- make enemies (stand stills at first)
 
 observations:
