@@ -31,6 +31,9 @@ function keySet(keyEvent, setTo){
 	}
 
 	//SHOOT
+	//these for atribuitions fixes the "not shooting when 2 keys pressed" bug
+	//but this leads up to this:
+	//when key A is pressed, and with holding A, B is pressed, when B is released, it doesnt shoot A
 	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
 		playerOne.keyHeld_ShootWest = setTo;
 		playerOne.keyHeld_ShootEast = !setTo;
