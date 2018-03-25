@@ -29,10 +29,12 @@ function keySet(keyEvent, setTo){
 	if (keyEvent.keyCode == KEY_BINDING_WALK_DOWN) {
 		playerOne.keyHeld_South = setTo;
 	}
+}
 
+function shootSet(keyEvent, setTo){
 	//SHOOT
 	//these for atribuitions fixes the "not shooting when 2 keys pressed" bug
-	//but this leads up to this:
+	//but this method (using shootSet and shootRelease) leads up to this:
 	//when key A is pressed, and with holding A, B is pressed, when B is released, it doesnt shoot A
 	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
 		playerOne.keyHeld_ShootWest = setTo;
@@ -60,12 +62,29 @@ function keySet(keyEvent, setTo){
 	}
 }
 
+function shootRelease(keyEvent, setTo){
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
+		playerOne.keyHeld_ShootWest = setTo;
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_RIGHT){
+		playerOne.keyHeld_ShootEast = setTo;	
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_UP){
+		playerOne.keyHeld_ShootNorth = setTo;
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_DOWN){
+		playerOne.keyHeld_ShootSouth = setTo;
+	}
+}
+
 function keyPressed(evt){
 	//console.log("apertou");
 	keySet(evt, true);
+	shootSet(evt, true);
 	evt.preventDefault();
 }
 
 function keyReleased(evt){
 	keySet(evt, false);
+	shootRelease(evt, false);
 }
