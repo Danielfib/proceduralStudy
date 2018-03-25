@@ -63,7 +63,6 @@ function keySet(keyEvent, setTo){
 function keyPressed(evt){
 	//console.log("apertou");
 	keySet(evt, true);
-	shootSet(evt, true);
 	evt.preventDefault();
 }
 
