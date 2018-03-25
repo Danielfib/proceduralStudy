@@ -29,9 +29,7 @@ function keySet(keyEvent, setTo){
 	if (keyEvent.keyCode == KEY_BINDING_WALK_DOWN) {
 		playerOne.keyHeld_South = setTo;
 	}
-}
 
-function shootSet(keyEvent, setTo){	
 	//SHOOT
 	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
 		playerOne.keyHeld_ShootWest = setTo;
@@ -59,21 +57,6 @@ function shootSet(keyEvent, setTo){
 	}
 }
 
-function shootRelease(keyEvent, setTo){
-	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
-		playerOne.keyHeld_ShootWest = setTo;
-	}
-	if (keyEvent.keyCode == KEY_BINDING_SHOOT_RIGHT){
-		playerOne.keyHeld_ShootEast = setTo;	
-	}
-	if (keyEvent.keyCode == KEY_BINDING_SHOOT_UP){
-		playerOne.keyHeld_ShootNorth = setTo;
-	}
-	if (keyEvent.keyCode == KEY_BINDING_SHOOT_DOWN){
-		playerOne.keyHeld_ShootSouth = setTo;
-	}
-}
-
 function keyPressed(evt){
 	//console.log("apertou");
 	keySet(evt, true);
@@ -83,5 +66,4 @@ function keyPressed(evt){
 
 function keyReleased(evt){
 	keySet(evt, false);
-	shootRelease(evt, false);
 }
