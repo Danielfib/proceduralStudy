@@ -70,5 +70,6 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 			}
 		}
 	}
+	//if(lvlArray[this.levelNumber].roomCount < lvlArray[this.levelNumber].maxRooms){}
 	this.createAdjacentRoom();
 }

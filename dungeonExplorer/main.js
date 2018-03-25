@@ -30,6 +30,7 @@ const BORDER_WIDTH = 40;
 const LEVEL_ROWS = 5;
 const LEVEL_COLS = 5;
 const LEVEL_ONE_DIFFICULTY = 2;
+const LEVEL_ONE_MAX_ROOMS = 10;
 
 window.onload = function() {
 	canvas = document.getElementById('canvas');
@@ -87,7 +88,7 @@ function drawAll(){
 
 function setupLevels(){
 	//the last argument is level number
-	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY, 0); //the argument to level is numberOfRooms
+	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY, 0, LEVEL_ONE_MAX_ROOMS); //the argument to level is numberOfRooms
 
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix
