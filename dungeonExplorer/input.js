@@ -29,8 +29,37 @@ function keySet(keyEvent, setTo){
 	if (keyEvent.keyCode == KEY_BINDING_WALK_DOWN) {
 		playerOne.keyHeld_South = setTo;
 	}
+}
 
+function shootSet(keyEvent, setTo){	
 	//SHOOT
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
+		playerOne.keyHeld_ShootWest = setTo;
+		playerOne.keyHeld_ShootEast = !setTo;
+		playerOne.keyHeld_ShootNorth = !setTo;
+		playerOne.keyHeld_ShootSouth = !setTo;
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_RIGHT){
+		playerOne.keyHeld_ShootWest = !setTo;
+		playerOne.keyHeld_ShootEast = setTo;
+		playerOne.keyHeld_ShootNorth = !setTo;
+		playerOne.keyHeld_ShootSouth = !setTo;	
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_UP){
+		playerOne.keyHeld_ShootWest = !setTo;
+		playerOne.keyHeld_ShootEast = !setTo;
+		playerOne.keyHeld_ShootNorth = setTo;
+		playerOne.keyHeld_ShootSouth = !setTo;
+	}
+	if (keyEvent.keyCode == KEY_BINDING_SHOOT_DOWN){
+		playerOne.keyHeld_ShootWest = !setTo;
+		playerOne.keyHeld_ShootEast = !setTo;
+		playerOne.keyHeld_ShootNorth = !setTo;
+		playerOne.keyHeld_ShootSouth = setTo;
+	}
+}
+
+function shootRelease(keyEvent, setTo){
 	if (keyEvent.keyCode == KEY_BINDING_SHOOT_LEFT){
 		playerOne.keyHeld_ShootWest = setTo;
 	}
@@ -48,10 +77,11 @@ function keySet(keyEvent, setTo){
 function keyPressed(evt){
 	//console.log("apertou");
 	keySet(evt, true);
-
+	shootSet(evt, true);
 	evt.preventDefault();
 }
 
 function keyReleased(evt){
 	keySet(evt, false);
+	shootRelease(evt, false);
 }

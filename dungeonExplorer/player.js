@@ -81,7 +81,7 @@ function player(initialX, initialY){
 	
 	}
 
-	this.shoot = function(){//vai se repetir mt rapidamente?
+	this.shoot = function(){//doesnt shoot at all when 2 keys are pressed
 		if (this.keyHeld_ShootWest && !this.keyHeld_ShootEast && !this.keyHeld_ShootNorth && !this.keyHeld_ShootSouth){
 			console.log("atirou para a esquerda");
 			shotsArray[contShots] = new shot(this.x, this.y, 1, 5, 1, 5, contShots);
