@@ -68,8 +68,10 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 				lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
 			}
+			lvlArray[this.levelNumber].roomCount++;
 		}
 	}
-	//if(lvlArray[this.levelNumber].roomCount < lvlArray[this.levelNumber].maxRooms){}
-	this.createAdjacentRoom();
+	if(lvlArray[this.levelNumber].roomCount < lvlArray[this.levelNumber].maxRooms){
+		this.createAdjacentRoom();
+	}
 }

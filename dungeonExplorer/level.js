@@ -63,6 +63,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms){
 				this.placeNewRoom(xRCoord + (1 * this.southRoomsFromStart), yRCoord);
 				this.southRoomsFromStart++;
 			}
+			this.roomCount++; //limits how many rooms are created
 		}
 
 		this.placeRoomsDoors();

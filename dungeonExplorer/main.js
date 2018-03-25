@@ -30,7 +30,7 @@ const BORDER_WIDTH = 40;
 const LEVEL_ROWS = 5;
 const LEVEL_COLS = 5;
 const LEVEL_ONE_DIFFICULTY = 2;
-const LEVEL_ONE_MAX_ROOMS = 10;
+const LEVEL_ONE_MAX_ROOMS = 15;
 
 window.onload = function() {
 	canvas = document.getElementById('canvas');
