@@ -91,7 +91,7 @@ function setupLevels(){
 	levelOne = new level(4, LEVEL_ROWS, LEVEL_COLS, LEVEL_ONE_DIFFICULTY, 0, LEVEL_ONE_MAX_ROOMS); //the argument to level is numberOfRooms
 
 	//setup levels matrices
-	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrix
+	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrice
 	//levelOne.createCrossExample(); //rooms disposal used for now
 	levelOne.generateRandomLevel();
 }
