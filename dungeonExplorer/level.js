@@ -1,5 +1,5 @@
 //the level is the set of rooms, that is, the room matrice
-function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms){
+function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRooms){
 	this.numberOfRooms = numberOfRooms;
 	this.roomsArray;
 	this.intArray;
@@ -8,6 +8,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms){
 	this.difficulty = difficulty;
 	this.roomCount = 0;
 	this.maxRooms = maxRooms;
+	this.minRooms = minRooms;
 
 	this.lvlNumber = lvlNumber;
 	lvlArray[this.lvlNumber] = this;//this works (levelArray[n] changes as lvl does)
