@@ -1,3 +1,11 @@
+const LEVEL_ROWS = 5;
+const LEVEL_COLS = 5;
+const LEVEL_ONE_DIFFICULTY = 2;
+const LEVEL_ONE_MAX_ROOMS = 15;
+const LEVEL_ONE_MIN_ROOMS = 8;
+
+var lvlArray = []; //maybe I will need it later, together with lvlNumber
+
 //the level is the set of rooms, that is, the room matrice
 function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRooms){
 	this.numberOfRooms = numberOfRooms;

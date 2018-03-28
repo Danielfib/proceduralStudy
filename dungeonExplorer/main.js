@@ -23,16 +23,10 @@ observations:
 */
 var canvas, ctx;
 var levelOne, playerOne;
-var lvlArray = []; //maybe I will need it later, together with lvlNumber
 
 //how large the wall is(so the player doesnt leave the room)
 const BORDER_WIDTH = 40;
 //these two will always remain the same for now
-const LEVEL_ROWS = 5;
-const LEVEL_COLS = 5;
-const LEVEL_ONE_DIFFICULTY = 2;
-const LEVEL_ONE_MAX_ROOMS = 15;
-const LEVEL_ONE_MIN_ROOMS = 8;
 
 window.onload = function() {
 	canvas = document.getElementById('canvas');
