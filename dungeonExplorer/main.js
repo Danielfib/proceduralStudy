@@ -82,7 +82,7 @@ function drawAll(){
 	}
 
 	//draw enemies
-	for (var i = 0; i < lvlOneEnemies.length(); i++){
+	for (var i = 0; i < lvlOneEnemies.length; i++){
 		colorRect(lvlOneEnemies[i].x, lvlOneEnemies[i].y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');
 	}
 }
