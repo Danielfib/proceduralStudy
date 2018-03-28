@@ -23,7 +23,7 @@ function generateCoord(which, border){
 		var x = Math.floor(Math.random()*canvas.width);
 		if(x < border/2){
 			x += border/2;
-		} else if (x > canvas.width - border/2){
+		} else if (x+ENEMY_SQUARE > canvas.width - border/2){
 			x = (canvas.width - border/2) - ENEMY_SQUARE;
 		}
 		return x;
@@ -31,7 +31,7 @@ function generateCoord(which, border){
 		var y = Math.floor(Math.random()*canvas.height);
 		if(y < border/2){
 			y += border/2;
-		} else if (y > canvas.height - border/2){
+		} else if (y+ENEMY_SQUARE > canvas.height - border/2){
 			y = (canvas.height - border/2) - ENEMY_SQUARE;
 		}
 		return y;
