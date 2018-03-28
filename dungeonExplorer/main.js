@@ -17,7 +17,8 @@ COMBAT:
 	- make shots (for now just one shoot speed)
 		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
 	
-	- drawn enemies properly
+	- manipulate enemies right (enemy array per room, per level)
+	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player
 
