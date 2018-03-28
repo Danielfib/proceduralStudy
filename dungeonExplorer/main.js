@@ -9,14 +9,17 @@ ROOM GENERATION:
 	- discover how doors are working: every adjacent rooms has doors, but should they?
 
 MINIMAP / DEBBUGING:
-	- enbeauty the minimap
+	- embeauty the minimap
 	- zoom in, and make the canvas center follow the room the player is in?
 	- after, this minimap must not be able to show all the rooms
 
 COMBAT:
 	- make shots (for now just one shoot speed)
 		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
-	- make enemies (stand stills at first)
+	
+	- drawn enemies properly
+	- make enemies move
+	- make enemies chase player
 
 observations:
 - border being drawn multiple times, when it is only needed one
@@ -97,6 +100,8 @@ function setupLevels(){
 	while(levelOne.minRooms  > levelOne.roomCount){
 		levelOne.generateRandomLevel();
 	}
+
+	generateRandomEnemies(5, BORDER_WIDTH);
 }
 
 function setupPlayers(){
