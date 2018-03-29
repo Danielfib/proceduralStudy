@@ -15,6 +15,10 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 
 	this.adjRoomChance = 0.65; //it mean that random() has to get > 0.75 to happen
 
+	//setting how many enemies in room based on level difficulty:
+	this.enemyQnt = lvlArray[this.levelNumber].difficulty * 2;
+	this.enemyArray = [];
+
 	this.checkDoorCollision = function(player){
 		//function being called succesfully
 		//must now implement all door collision detection
@@ -71,7 +75,39 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 			lvlArray[this.levelNumber].roomCount++;
 		}
 	}
+	
 	if(lvlArray[this.levelNumber].roomCount < lvlArray[this.levelNumber].maxRooms){
 		this.createAdjacentRoom();
 	}
+
+	this.generateRandomEnemies = function(border) {
+		var howMany = this.enemyQnt;
+		for (var i = 0; i < howMany; i++) {
+			this.enemyArray[i] = new enemy(this.generateCoord('x', border), this.generateCoord('y', border), 2);
+		}
+		//console.log("eae");
+	}
+
+	this.generateCoord = function(which, border){
+		if(which == 'x'){
+				var x = Math.floor(Math.random()*canvas.width);
+			if(x < border/2){
+				x += border/2;
+			} else if (x+ENEMY_SQUARE > canvas.width - border/2){
+				x = (canvas.width - border/2) - ENEMY_SQUARE;
+			}
+			return x;
+		} else if (which == 'y'){
+			var y = Math.floor(Math.random()*canvas.height);
+			if(y < border/2){
+				y += border/2;
+			} else if (y+ENEMY_SQUARE > canvas.height - border/2){
+				y = (canvas.height - border/2) - ENEMY_SQUARE;
+			}
+			return y;
+		}
+	}
+
+	//create random enemies:
+	this.generateRandomEnemies(BORDER_WIDTH);
 }

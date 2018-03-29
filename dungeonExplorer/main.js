@@ -86,8 +86,14 @@ function drawAll(){
 	}
 
 	//draw enemies
-	for (var i = 0; i < lvlOneEnemies.length; i++){
-		colorRect(lvlOneEnemies[i].x, lvlOneEnemies[i].y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');
+	//for now, using 5x5 as standar matrices size
+	for (var i = 0; i < 5; i++){
+		for (var j = 0; j < 5; j++){
+			//draw ememies on player current room
+			for(var k = 0; k < playerOne.currentRoom.enemyQnt; k++){
+				var currEnemy = playerOne.currentRoom.enemyArray[k];
+				colorRect(currEnemy.x, currEnemy.y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');			}
+		}
 	}
 }
 
@@ -100,9 +106,7 @@ function setupLevels(){
 	//levelOne.createCrossExample(); //rooms disposal used for now
 	while(levelOne.minRooms  > levelOne.roomCount){
 		levelOne.generateRandomLevel();
-	}
-
-	generateRandomEnemies(5, BORDER_WIDTH);
+	}	
 }
 
 function setupPlayers(){
