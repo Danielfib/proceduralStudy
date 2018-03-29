@@ -13,7 +13,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	this.isPlayerOnNorthDoor = false;
 	this.isPlayerOnSouthDoor = false;
 
-	this.adjRoomChance = 0.65; //it mean that random() has to get > 0.75 to happen
+	this.adjRoomChance = 0.65; //it mean that random() has to get > 0.65 to happen
 
 	//setting how many enemies in room based on level difficulty:
 	this.enemyQnt = lvlArray[this.levelNumber].difficulty * 2;
@@ -90,7 +90,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 
 	this.generateCoord = function(which, border){
 		if(which == 'x'){
-				var x = Math.floor(Math.random()*canvas.width);
+			var x = Math.floor(Math.random()*canvas.width);
 			if(x < border/2){
 				x += border/2;
 			} else if (x+ENEMY_SQUARE > canvas.width - border/2){
