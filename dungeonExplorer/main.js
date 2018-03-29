@@ -13,11 +13,12 @@ MINIMAP / DEBBUGING:
 	- zoom in, and make the canvas center follow the room the player is in?
 	- after, this minimap must not be able to show all the rooms
 
+	BUG: sometimes, there are rooms being generated not linked to other rooms, impossible to get to
+
 COMBAT:
 	- make shots (for now just one shoot speed)
 		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
 	
-	- manipulate enemies right (enemy array per room, per level)
 	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player
