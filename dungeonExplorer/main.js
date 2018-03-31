@@ -61,6 +61,12 @@ function updateAll(){
 function moveAll(){
 	movePlayers();
 	playerOne.currentRoom.checkDoorCollision(playerOne);
+
+	//check shots hitting enemies
+	for(var i = 0; i < playerOne.currentRoom.enemyQnt; i++){
+		playerOne.currentRoom.enemyArray[i].checkIfShot();
+	}
+
 }
 
 function movePlayers(){
