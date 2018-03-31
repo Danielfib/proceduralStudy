@@ -4,9 +4,12 @@ const ENEMY_SQUARE = 20;
 
 var lvlOneEnemies = [];
 
-function enemy(x, y, life){
+function enemy(x, y, life, enemyNum){
 	this.x = x;
 	this.y = y;
 	this.life = life;
+	this.enemyNum = enemyNum;
+
+	
 }
 
