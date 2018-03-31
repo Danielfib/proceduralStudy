@@ -21,6 +21,9 @@ COMBAT:
 	- make shots (for now just one shoot speed)
 		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
 	
+	- make shots hit enemy
+		^bug: each collision is counting multiple times, so the shoot is remooving multimple enemies from array
+		
 	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player

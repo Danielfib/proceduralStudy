@@ -5,11 +5,12 @@ const ENEMY_HITBOX = 5;
 
 var lvlOneEnemies = [];
 
-function enemy(x, y, life, enemyNum){
+function enemy(x, y, life, enemyNum, thisRoom){
 	this.x = x;
 	this.y = y;
 	this.life = life;
 	this.enemyNum = enemyNum;
+	this.thisRoom = thisRoom;
 
 	this.checkIfShot = function(){
 		//for each shot
@@ -18,6 +19,9 @@ function enemy(x, y, life, enemyNum){
 			if(shotsArray[i].x > this.x && shotsArray[i].x < (this.x+ENEMY_SQUARE)
 			&& shotsArray[i].y > this.y && shotsArray[i].y < (this.y+ENEMY_SQUARE)){
 				console.log("acertou mizeravi");
+				thisRoom.enemyArray.splice(i, 1);
+				thisRoom.enemyQnt--;
+				thisRoom.resetEnemyNumber();
 			}
 		}
 	}

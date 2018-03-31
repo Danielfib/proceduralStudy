@@ -83,7 +83,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	this.generateRandomEnemies = function(border) {
 		var howMany = this.enemyQnt;
 		for (var i = 0; i < howMany; i++) {
-			this.enemyArray[i] = new enemy(this.generateCoord('x', border), this.generateCoord('y', border), 1, i);
+			this.enemyArray[i] = new enemy(this.generateCoord('x', border), this.generateCoord('y', border), 1, i, this);
 		}
 		//console.log("eae");
 	}
@@ -105,6 +105,12 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 				y = (canvas.height - border/2) - ENEMY_SQUARE;
 			}
 			return y;
+		}
+	}
+
+	this.resetEnemyNumber = function(){
+		for(var i = 0; i < this.enemyQnt; i++){
+			this.enemyArray[i].enemyNum = i;
 		}
 	}
 
