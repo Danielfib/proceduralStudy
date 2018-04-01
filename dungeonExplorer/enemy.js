@@ -16,8 +16,8 @@ function enemy(x, y, life, enemyNum, thisRoom){
 		//for each shot
 		for(var i = 0; i < contShots; i++){
 			//collision checking
-			if(shotsArray[i].x > this.x && shotsArray[i].x < (this.x+ENEMY_SQUARE)
-			&& shotsArray[i].y > this.y && shotsArray[i].y < (this.y+ENEMY_SQUARE)){
+			if(shotsArray[i].x > this.x - ENEMY_HITBOX && shotsArray[i].x < (this.x+ENEMY_SQUARE) + ENEMY_HITBOX
+			&& shotsArray[i].y > this.y - ENEMY_HITBOX && shotsArray[i].y < (this.y+ENEMY_SQUARE) + ENEMY_HITBOX){
 				console.log("acertou mizeravi");
 				thisRoom.enemyArray.splice(i, 1);
 				thisRoom.enemyQnt--;
