@@ -22,7 +22,7 @@ COMBAT:
 		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
 	
 	- make shots hit enemy
-		^bug: each collision is counting multiple times, so the shoot is removing multimple enemies from array
+		^shots are going through them, should they?
 		
 	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
