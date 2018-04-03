@@ -23,6 +23,8 @@ COMBAT:
 	
 	- make shots hit enemy
 		^shots are going through them, should they?
+
+	- make it so that player can oly go through door when all enemies at the room are killed
 		
 	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
