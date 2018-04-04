@@ -19,7 +19,9 @@ MINIMAP / DEBBUGING:
 
 COMBAT:
 	- make shots (for now just one shoot speed)
-		^bug: when plpayer tries to shoot at multiple direction at the same time, the player doesnt shoot at all
+		^bug: try to shoot in multiple directions ate the  same time
+			^ in a certain way, the player doesnt shoot when key is pressed:
+			shoot to direction A, then to B, still holding A, release B. The play won't be shooting to A.
 	
 	- make shots hit enemy
 		^shots are going through them, should they?
@@ -29,6 +31,8 @@ COMBAT:
 	- drawn enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player
+
+	- make boss room
 
 observations:
 - border being drawn multiple times, when it is only needed one
@@ -126,4 +130,3 @@ function setupLevels(){
 function setupPlayers(){
 	playerOne = new player(levelOne.playerInitialX, levelOne.playerInitialY);
 }
-
