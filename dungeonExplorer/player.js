@@ -135,7 +135,7 @@ function player(initialX, initialY){
 
 	this.updatePlayerLocationOnLevel = function(deltaX, deltaY){
 		//updates the player location at the intArray of the level (uses '2')
-		this.currentLevel.intArray[this.currentRoomCoordX][this.currentRoomCoordY] = 1;
+		this.currentLevel.intArray[this.currentRoomCoordX][this.currentRoomCoordY] = 3;
 		this.currentLevel.intArray[this.currentRoomCoordX + deltaX][this.currentRoomCoordY + deltaY] = 2;
 
 		//and everytime the intArray changes, we change the view on the minimap:
@@ -149,9 +149,8 @@ function player(initialX, initialY){
 
 		this.currentRoomCoordX += deltaX;
 		this.currentRoomCoordY += deltaY;
-
-		this.currentRoom = this.currentLevel.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
-
+		this.currentRoom = levelOne.roomsArray[this.currentRoomCoordX][this.currentRoomCoordY];
+		
 		//clean shots from previous room:
 		shotsArray.splice(0, contShots);
 	}

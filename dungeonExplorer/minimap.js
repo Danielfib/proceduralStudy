@@ -27,13 +27,19 @@ function drawMinimapRooms(level){
 
 	for(var i = 0; i < level.rows; i++){
 		for(var j = 0; j < level.cols; j++){
+			//player current room
 			if(levelIntArray[i][j] == 1){
-				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, 'grey');
+				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, '#303030');
 				//console.log("grey");
 			}
+			//undiscovered room
 			if(levelIntArray[i][j] == 2){
 				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, 'white');	
 				//console.log("white");
+			}
+			//discovered room
+			if(levelIntArray[i][j] == 3){
+				colorRectMinimap(j * xFactor, i * yFactor, xFactor, yFactor, '#a8a8a8');	
 			}
 		}
 	}

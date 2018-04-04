@@ -110,7 +110,7 @@ function drawAll(){
 			//draw ememies on player current room
 			for(var k = 0; k < playerOne.currentRoom.enemyQnt; k++){
 				var currEnemy = playerOne.currentRoom.enemyArray[k];
-				colorRect(currEnemy.x, currEnemy.y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');
+				colorRect(currEnemy.x, currEnemy.y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');	
 			}
 		}
 	}
