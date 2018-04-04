@@ -96,7 +96,7 @@ function drawAll(){
 
 	//border (the rooms' walls) and doors
 	drawBorder(canvas.height,canvas.width, BORDER_WIDTH, 'green');
-	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red');
+	drawDoors(playerOne.currentRoom, BORDER_WIDTH, 'red', 'grey');
 
 	//draw shots	
 	for(var i = 0; i < contShots; i++){
@@ -110,7 +110,8 @@ function drawAll(){
 			//draw ememies on player current room
 			for(var k = 0; k < playerOne.currentRoom.enemyQnt; k++){
 				var currEnemy = playerOne.currentRoom.enemyArray[k];
-				colorRect(currEnemy.x, currEnemy.y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');			}
+				colorRect(currEnemy.x, currEnemy.y, ENEMY_SQUARE, ENEMY_SQUARE, 'blue');
+			}
 		}
 	}
 }

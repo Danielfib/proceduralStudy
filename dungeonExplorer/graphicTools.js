@@ -18,17 +18,33 @@ function drawBorder(canvasHeight, canvasWidth, borderWidth, borderColor){
 	colorRect(0, canvasHeight - borderWidth/2, canvasWidth, borderWidth/2, borderColor); //southern wall
 }
 
-function drawDoors(room, borderWidth, wallColor){
+function drawDoors(room, borderWidth, openDoorColor, closedDoorColor){
 	if (room.hasEastDoor){
-		colorRect(800 - borderWidth, 275, borderWidth, 50, wallColor);	
+		if(room.enemyQnt == 0){
+			colorRect(800 - borderWidth, 275, borderWidth, 50, openDoorColor);	
+		} else {
+			colorRect(800 - borderWidth, 275, borderWidth, 50, closedDoorColor);	
+		}
 	}
 	if (room.hasWestDoor){
-		colorRect(0, 275, borderWidth, 50, wallColor);	
+		if(room.enemyQnt == 0){
+			colorRect(0, 275, borderWidth, 50, openDoorColor);	
+		} else {
+			colorRect(0, 275, borderWidth, 50, closedDoorColor);	
+		}
 	}
 	if (room.hasNorthDoor){
-		colorRect(375, 0, 50, borderWidth, wallColor);		
+		if(room.enemyQnt == 0){
+			colorRect(375, 0, 50, borderWidth, openDoorColor);	
+		} else {
+			colorRect(375, 0, 50, borderWidth, closedDoorColor);	
+		}		
 	}
 	if (room.hasSouthDoor){
-		colorRect(375, 600 - borderWidth, 50, borderWidth, wallColor);
+		if(room.enemyQnt == 0){
+			colorRect(375, 600 - borderWidth, 50, borderWidth, openDoorColor);	
+		} else {
+			colorRect(375, 600 - borderWidth, 50, borderWidth, closedDoorColor);	
+		}
 	}
 }
