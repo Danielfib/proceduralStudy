@@ -23,27 +23,32 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 		//function being called succesfully
 		//must now implement all door collision detection
 		if((player.y < 275 + BORDER_WIDTH && player.y > 275)
-			&& player.x > canvas.width - BORDER_WIDTH
-			&& this.hasEastDoor){
+		&& player.x > canvas.width - BORDER_WIDTH
+		&& this.hasEastDoor
+		//if there's no more enemies
+		&& player.currentRoom.enemyQnt == 0){
 			//console.log("East Door activated");
 			player.switchRooms(1);
 		}
 		if((player.y < 275 + BORDER_WIDTH && player.y > 275) 
-			&& player.x < BORDER_WIDTH
-			&& this.hasWestDoor){
+		&& player.x < BORDER_WIDTH
+		&& this.hasWestDoor
+		&& player.currentRoom.enemyQnt == 0){
 			//console.log("West Door activated");
 			player.switchRooms(0);
 		}
 
 		if((player.x < 375 + BORDER_WIDTH && player.x > 375)
-			&& player.y < BORDER_WIDTH
-			&& this.hasNorthDoor){
+		&& player.y < BORDER_WIDTH
+		&& this.hasNorthDoor
+		&& player.currentRoom.enemyQnt == 0){
 			//console.log("North Door activated");
 			player.switchRooms(2);
 		}
 		if((player.x < 375 + BORDER_WIDTH && player.x > 375)
-			&& player.y > canvas.height - BORDER_WIDTH
-			&& this.hasSouthDoor){
+		&& player.y > canvas.height - BORDER_WIDTH
+		&& this.hasSouthDoor
+		&& player.currentRoom.enemyQnt == 0){
 			//console.log("South Door activated");
 			player.switchRooms(3);
 		}		
