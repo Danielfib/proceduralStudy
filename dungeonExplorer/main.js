@@ -1,4 +1,10 @@
 /* NEXT STEPS:
+MENU:
+	- make the menu be html style, not another canvas.
+		^a button that changes a boolean, to alternate between html elements and the game itself (the canvas)
+	- make only play button
+	- make instructions 
+
 ROOM GENERATION:
 	- on each cross room creation, a new room in any direction can be created, and from that one,
 	  again and again.
