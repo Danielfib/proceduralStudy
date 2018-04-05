@@ -2,6 +2,7 @@
 //(for now, all enemies are squares and have the same size)
 const ENEMY_SQUARE = 20;
 const ENEMY_HITBOX = 5;
+const ENEMY_SPEED = 1;
 
 var lvlOneEnemies = [];
 
@@ -23,6 +24,20 @@ function enemy(x, y, life, enemyNum, thisRoom){
 				thisRoom.enemyQnt--;
 				thisRoom.resetEnemyNumber();
 			}
+		}
+	}
+
+	this.chase = function(player){
+		//chase movement based on 4 quadrants
+		if(player.x <= this.x){
+			this.x -= ENEMY_SPEED;
+		} else {
+			this.x += ENEMY_SPEED;
+		}
+		if(player.y <= this.y){
+			this.y -= ENEMY_SPEED;
+		} else {
+			this.y += ENEMY_SPEED;
 		}
 	}
 }

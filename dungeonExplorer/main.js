@@ -28,7 +28,8 @@ COMBAT:
 		
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
-	- make enemies chase player
+	- make enemies chase player(done)
+		^make enemy collision and maybe better chasing?
 
 	- make boss room
 
@@ -74,6 +75,15 @@ function moveAll(){
 		playerOne.currentRoom.enemyArray[i].checkIfShot();
 	}
 
+	//make enemies chase player
+	enemyChase(playerOne);
+
+}
+
+function enemyChase(player){
+	for(var i = 0; i < player.currentRoom.enemyQnt; i++){
+		playerOne.currentRoom.enemyArray[i].chase(player);
+	}
 }
 
 function movePlayers(){
