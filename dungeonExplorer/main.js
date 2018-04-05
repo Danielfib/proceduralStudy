@@ -36,7 +36,6 @@ COMBAT:
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player(done)
-		^make enemy direction change at the center, and not on top-left, as it is now.
 		^make enemy collision and maybe better chasing?
 
 	- make boss room

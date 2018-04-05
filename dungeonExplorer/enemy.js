@@ -29,12 +29,12 @@ function enemy(x, y, life, enemyNum, thisRoom){
 
 	this.chase = function(player){
 		//chase movement based on 4 quadrants
-		if(player.x <= this.x){
+		if(player.x - ENEMY_SQUARE/2 <= this.x){
 			this.x -= ENEMY_SPEED;
 		} else {
 			this.x += ENEMY_SPEED;
 		}
-		if(player.y <= this.y){
+		if(player.y - ENEMY_SQUARE/2 <= this.y){
 			this.y -= ENEMY_SPEED;
 		} else {
 			this.y += ENEMY_SPEED;
