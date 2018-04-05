@@ -36,6 +36,7 @@ COMBAT:
 observations:
 - border being drawn multiple times, when it is only needed one
 */
+var selectedPlay = false;
 var canvas, ctx;
 var levelOne, playerOne;
 
@@ -47,14 +48,24 @@ window.onload = function() {
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
 
-	setupLevels();
-	setupPlayers();
-	setupMinimap(levelOne); //static, for now	
+	if(selectedPlay){ //selecionou play no menu
+		setupLevels();
+		setupPlayers();
+		setupMinimap(levelOne); //static, for now	
 
-	var fps = 30;
+		var fps = 30;
+		//run this function this often (milliseconds)
+		setInterval(updateAll, 1000/fps);
+		setInterval(shoot, PLAYER_SHOOT_SPEED);	
+	} else {
+		prepareMenu();
+	}
+}
+
+function prepareMenu(){
+	//var fps = 30;
 	//run this function this often (milliseconds)
-	setInterval(updateAll, 1000/fps);
-	setInterval(shoot, PLAYER_SHOOT_SPEED);
+	setupMenu();
 }
 
 function shoot(){
@@ -77,7 +88,6 @@ function moveAll(){
 
 	//make enemies chase player
 	enemyChase(playerOne);
-
 }
 
 function enemyChase(player){
