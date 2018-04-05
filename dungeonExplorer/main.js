@@ -4,6 +4,7 @@ MENU:
 		^a button that changes a boolean, to alternate between html elements and the game itself (the canvas)
 	- make only play button
 	- make instructions 
+	- think about ways to do that (html, another canvas?)
 
 ROOM GENERATION:
 	- on each cross room creation, a new room in any direction can be created, and from that one,
@@ -35,6 +36,7 @@ COMBAT:
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies move
 	- make enemies chase player(done)
+		^make enemy direction change at the center, and not on top-left, as it is now.
 		^make enemy collision and maybe better chasing?
 
 	- make boss room
