@@ -1,12 +1,4 @@
 //graphic functions
-//for now, leave this function here, but after, try to make this one and
-//colorRect() one.
-function colorRectMenu(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
-	console.log("oi");
-	menuCtx.fillStyle = fillColor;
-	menuCtx.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
-}
-
 function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor){
 	ctx.fillStyle = fillColor;
 	ctx.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
