@@ -39,6 +39,9 @@ COMBAT:
 		^make enemy collision and maybe better chasing?
 
 	- make boss room
+		^IDEA: scan array to see "edge rooms", make it have a chance to be a boss rooms, if there not one already.
+				if no rooms gets elected as boss room, create new room just for this.
+				then, paint it red on minimap.
 
 observations:
 - border being drawn multiple times, when it is only needed one
