@@ -33,6 +33,8 @@ function player(initialX, initialY){
 	//bool to prevent player from shooting in multiple directions at the same time
 	this.isShooting = false;
 
+	this.lifePoints = 2;
+
 	this.move = function() {
 		var nextX = this.x;
 		var nextY = this.y;
@@ -161,5 +163,27 @@ function player(initialX, initialY){
 		} else {
 			return false;
 		}
+	}
+
+	this.checkDamage = function(){
+		if(this.lifePoints < 0){
+			this.die();
+		} else {
+			for(var i = 0; i < this.currentRoom.enemyArray.length; i++){
+				if(this.currentRoom.enemyArray[i].x < this.x
+				&& this.currentRoom.enemyArray[i].x + ENEMY_SQUARE > this.x
+				&& this.currentRoom.enemyArray[i].y < this.y
+				&& this.currentRoom.enemyArray[i].y + ENEMY_SQUARE > this.y){
+					//player is hit
+					this.lifePoints--;
+				}
+			}	
+		}
+		
+	}
+
+	this.die = function(){
+		//trigered when player dies
+		//for now, only a warning
 	}
 }

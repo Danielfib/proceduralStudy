@@ -78,6 +78,7 @@ function updateAll(){
 
 function moveAll(){
 	movePlayers();
+	playerOne.checkDamage();
 	playerOne.currentRoom.checkDoorCollision(playerOne);
 
 	//check shots hitting enemies
