@@ -35,8 +35,8 @@ COMBAT:
 		
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies chase player(done)
-		^make player lose life on enemy impact
-		^make enemy collision and maybe better chasing?
+		^make player lose life on enemy impact (maybe it is losing a lot at once, make ivulnerable periods)
+		^make enemy collision and maybe better chasing? (and solve flickering when on same axis, maybe with move tolerance)
 
 	- make boss room
 		^IDEA: scan array to see "edge rooms", make it have a chance to be a boss rooms, if there not one already.
