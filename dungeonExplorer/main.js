@@ -34,8 +34,8 @@ COMBAT:
 		^shots are going through them, should they?
 		
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
-	- make enemies move
 	- make enemies chase player(done)
+		^make player lose life on enemy impact
 		^make enemy collision and maybe better chasing?
 
 	- make boss room
