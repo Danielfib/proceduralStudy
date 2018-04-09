@@ -2,7 +2,7 @@
 //(for now, all enemies are squares and have the same size)
 const ENEMY_SQUARE = 20;
 const ENEMY_HITBOX = 5;
-const ENEMY_SPEED = 1;
+const ENEMY_SPEED = 2;
 
 var lvlOneEnemies = [];
 
