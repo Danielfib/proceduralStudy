@@ -185,5 +185,6 @@ function player(initialX, initialY){
 	this.die = function(){
 		//trigered when player dies
 		//for now, only a warning
+		alert("you died!");
 	}
 }
