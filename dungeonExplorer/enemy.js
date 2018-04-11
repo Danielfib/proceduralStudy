@@ -41,4 +41,3 @@ function enemy(x, y, life, enemyNum, thisRoom){
 		}
 	}
 }
-
