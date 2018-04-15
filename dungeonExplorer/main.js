@@ -5,7 +5,7 @@ MENU:
 ROOM GENERATION:
 	- on each cross room creation, a new room in any direction can be created, and from that one,
 	  again and again.
-	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary, so for each adj room created, harder it gets to create again
+	- BUT, it is unregulated: from one iteration to other, the number of rooms can greatly vary, so for each adj room created, harder it gets to create again (done, but unproperly, with bug)
 	- BUT, still, it can vary, so, set a maximum(done) and minimum(done) value to room creation
 		^ maybe this is being done not effectively?
 
