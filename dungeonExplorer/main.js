@@ -41,6 +41,7 @@ COMBAT:
 
 observations:
 - border being drawn multiple times, when it is only needed one
+- method extraction required on some methods
 */
 var canvas, ctx;
 var levelOne, playerOne;
