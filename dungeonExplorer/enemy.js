@@ -23,6 +23,9 @@ function enemy(x, y, life, enemyNum, thisRoom){
 				thisRoom.enemyArray.splice(this.enemyNum, 1);
 				thisRoom.enemyQnt--;
 				thisRoom.resetEnemyNumber();
+
+				//remove shot when enemy is hit:
+				shotsArray[i].manageShotRemoval();
 			}
 		}
 	}
