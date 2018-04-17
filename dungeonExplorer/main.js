@@ -40,6 +40,10 @@ COMBAT:
 				if no rooms gets elected as boss room, create new room just for this.
 				then, paint it red on minimap.
 
+DEBBUG:
+	- add a debug variable to do something os debbug
+		^player cant die
+		
 observations:
 - border being drawn multiple times, when it is only needed one
 - method extraction required on some methods
