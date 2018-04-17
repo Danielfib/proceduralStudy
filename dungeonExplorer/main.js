@@ -49,7 +49,7 @@ observations:
 - method extraction required on some methods
 */
 //when is debugging, this variable is true
-const DEBUG = true;
+const DEBUG_ON = true;
 
 var canvas, ctx;
 var levelOne, playerOne;

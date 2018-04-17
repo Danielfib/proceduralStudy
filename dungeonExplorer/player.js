@@ -166,7 +166,7 @@ function player(initialX, initialY){
 	}
 
 	this.checkDamage = function(){
-		if(this.lifePoints < 0){
+		if(this.lifePoints < 0 && !DEBUG_ON){
 			this.die();
 		} else {
 			for(var i = 0; i < this.currentRoom.enemyArray.length; i++){
