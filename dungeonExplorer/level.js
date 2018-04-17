@@ -81,7 +81,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 	this.placeNewRoom = function(x, y){
 		//this method, for now, only places new rooms, but to make the PG go beyon cross,
 		//perhaps I need to make it check the rooms 'edge', and advance till the edge room, then create one next to it.
-		console.log("room in:", x, y);
+		if(DEBUG_ON)console.log("room in:", x, y);
 		this.intArray[x][y] = 1;
 		this.roomsArray[x][y] = new room(false, false, false, false, x, y, this.lvlNumber);
 	}
