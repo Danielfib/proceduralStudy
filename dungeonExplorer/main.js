@@ -27,7 +27,8 @@ COMBAT:
 			shoot to direction A, then to B, still holding A, release B. The play won't be shooting to A.
 	
 	- make shots hit enemy
-		^shots are going through them, should they?
+		^shots are going through them, should they? (done: shot being removed when enemy is hit)
+		^maybe a isPiercy boolean can upgrade the shot to go through enemies
 		
 	- draw enemies properly (they are being drawn on top of each other and on top of doors)
 	- make enemies chase player(done)
