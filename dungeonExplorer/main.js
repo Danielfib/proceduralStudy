@@ -1,6 +1,7 @@
 /* NEXT STEPS:
 MENU:
 	- think about menu (html, canvas?)
+	- maybe just a frame,the instructions and descriptions written in the border, and the canvas in the middle
 
 ROOM GENERATION:
 	- on each cross room creation, a new room in any direction can be created, and from that one,
