@@ -2,6 +2,7 @@
 status: project now is put into a hold, to be later continued.
 reason of university and other game projects that do not leave the quality time I need for
 to acomplish this study with maximum benefit.
+Frequency os commits will now decrease, apart from sporadics lapses of time and will.
 
 MENU:
 	- think about menu (html, canvas?)
