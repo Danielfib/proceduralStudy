@@ -1,4 +1,8 @@
 /* NEXT STEPS:
+status: project now is put into a hold, to be later continued.
+reason of university and other game projects that do not leave the quality time I need for
+to acomplish this study with maximum benefit.
+
 MENU:
 	- think about menu (html, canvas?)
 	- maybe just a frame,the instructions and descriptions written in the border, and the canvas in the middle
