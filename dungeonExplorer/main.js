@@ -25,6 +25,7 @@ MINIMAP / DEBBUGING:
 	BUG: sometimes, there are rooms being generated not linked to other rooms, impossible to get to
 		^bug appearing in commit dca07628465c4b0d4094a49a2f10c023b4ac5252, "[RG] determining minimum number of rooms generated"
 		^see how miminum room limit is affecting this
+		^POSSIBLE SOLUTION: on main, shouldnt be a loop, loop is already on generateRandomLevel()
 
 COMBAT:
 	- make shots (for now just one shoot speed)
