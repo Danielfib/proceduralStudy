@@ -64,24 +64,19 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
-				//lvlArray[this.levelNumber].westRoomsFromStart++;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
-				//lvlArray[this.levelNumber].eastRoomsFromStart++;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
 				lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
-				//lvlArray[this.levelNumber].northRoomsFromStart++;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
 				lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
-				//lvlArray[this.levelNumber].southRoomsFromStart++;
 			}
-			//lvlArray[this.levelNumber].roomCount++;
 		}
 	}
 	
