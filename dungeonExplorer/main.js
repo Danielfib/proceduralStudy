@@ -22,12 +22,6 @@ MINIMAP / DEBBUGING:
 	- zoom in, and make the canvas center follow the room the player is in?
 	- after, this minimap must not be able to show all the rooms
 
-	BUG: sometimes, the room creation enters an infinite loop
-		^this started to happen after i solved the island bug
-		^possible cause: the adjacent room creation on room are overlapping the counters of rooms from start, and it may be bugging the edge checkers methods
-		^POSSILE SOLUTION: find a way to update the edge counters, even when it is room.createAdjacentRoom that creates a room straight to the start.
-		^POSSIBLE SOLUTION2 (Gambiarra, the famous): with and else, i can break the loop if, for example, it looped 10 times without finding a solution (it wont lead to ideal levels, though)
-
 COMBAT:
 	- make shots (for now just one shoot speed)
 		^bug: try to shoot in multiple directions ate the  same time

@@ -30,6 +30,8 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 	this.westRoomsFromStart = 1;
 	this.northRoomsFromStart = 1;
 	this.southRoomsFromStart = 1;
+	this.xStart;
+	this.yStart;
 
 	this.isBaseMatrixDone = false;
 
@@ -44,7 +46,11 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 		this.intArray[xRCoord][yRCoord] = 1;
 		this.setPlayerInitialPosition(xRCoord, yRCoord);
 		console.log(xRCoord, yRCoord);
+		this.xStart = xRCoord;
+		this.yStart = yRCoord;
+		
 		ENABLE_ADJ_ROOMS = true; //just so that no adjacent rooms are created within base setup, and just from now on
+		
 		while(this.roomCount < this.minRooms){ //infinite looping here sometimes
 			//console.log("oi");
 			//console.log("-----------------------");
@@ -58,26 +64,23 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 				//create a room to the west
 				//if there is no room to the west, nor we're on left edge, create one
 				this.placeNewRoom(xRCoord, yRCoord + (-1 * this.westRoomsFromStart));
-				this.westRoomsFromStart++;
 			} else if (newRoomDirection < 0.5 && this.checkFurthestRoomExistOnDir(1, xRCoord, yRCoord)){
 				//console.log("room to the east");
 				//create room to the east
 				//if there is no room to the east, nor we're on right edge, create one
 				this.placeNewRoom(xRCoord, yRCoord+ (1 * this.eastRoomsFromStart));
-				this.eastRoomsFromStart++;
 			} else if (newRoomDirection < 0.75 && this.checkFurthestRoomExistOnDir(2, xRCoord, yRCoord)){
 				//console.log("room to the north");
 				//create room to the north
 				//if there is no room to the north, nor we're on upper edge, create one
 				this.placeNewRoom(xRCoord + (-1 * this.northRoomsFromStart), yRCoord);
-				this.northRoomsFromStart++;
 			} else if (newRoomDirection < 1 && this.checkFurthestRoomExistOnDir(3, xRCoord, yRCoord)){ 
 				//console.log("room to the south");
 				//create room to the south
 				//if there is no room to the south, nor we're on bottom edge, create one
 				this.placeNewRoom(xRCoord + (1 * this.southRoomsFromStart), yRCoord);
-				this.southRoomsFromStart++;
-			} 			
+			}
+			this.updateLevelEdgeCounters(); 			
 		}
 
 		this.placeRoomsDoors();
@@ -90,7 +93,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 		this.intArray[x][y] = 1;
 		this.roomsArray[x][y] = new room(false, false, false, false, x, y, this.lvlNumber);
 		this.roomCount++; //limits how many rooms are created
-		console.log("eae" + this.roomCount);
+		console.log("roomCount: " + this.roomCount);
 	}
 
 	this.checkFurthestRoomExistOnDir = function(dir, currentX , currentY){
@@ -127,6 +130,45 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 				return false;
 			}
 		} 
+	}
+
+	this.updateLevelEdgeCounters = function(){
+		console.log("updated edge counters");
+
+		var startX = this.xStart;
+		var startY = this.yStart;
+		var n = this.intArray.length;
+
+		//how many rooms has for each side + 1
+		var east = 1;
+		var west = 1;
+		var north = 1;
+		var south = 1;
+
+		for(var i = 0; i < n; i++){
+			console.log("oi: " + east + " " + west + " " + north + " " + south)
+			//east
+			if(startY + east < n && this.intArray[startX][startY+east] == 1){
+				east++;
+			}
+			//west
+			if(startY - west > 0 && this.intArray[startX][startY-west] == 1){
+				west++;
+			}
+			//north
+			if(startX - north > 0 && this.intArray[startX - north][startY] == 1){
+				north++;
+			}
+			//south
+			if(startX + south < n && this.intArray[startX + south][startY] == 1){
+				south++;
+			}
+		}
+
+		this.eastRoomsFromStart = east;
+		this.westRoomsFromStart = west;
+		this.northRoomsFromStart = north;
+		this.southRoomsFromStart = south;
 	}
 
 	this.placeRoomsDoors = function(){

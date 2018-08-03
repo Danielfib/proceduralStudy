@@ -55,6 +55,7 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 	}
 
 	this.createAdjacentRoom = function(){ //method extraction?
+		var createdRoom = false;
 		//to be called on room creation
 		//will check all for direction and maybe create a room on each one, IF there's none on each direction
 		
@@ -64,21 +65,33 @@ function room(hasWestDoor, hasEastDoor, hasNorthDoor, hasSouthDoor, x, y, level)
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y-1] == 0 && Math.random() > this.adjRoomChance){//has no room to the west
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y-1);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
+				createdRoom = true;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x][this.y+1] == 0 && Math.random() > this.adjRoomChance){//has no room to the east
 				lvlArray[this.levelNumber].placeNewRoom(this.x, this.y+1);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
+				createdRoom = true;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x-1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the north
 				lvlArray[this.levelNumber].placeNewRoom(this.x-1, this.y);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
+				createdRoom = true;
 			}
 			if(lvlArray[this.levelNumber].intArray[this.x+1][this.y] == 0 && Math.random() > this.adjRoomChance){//has no room to the south
 				lvlArray[this.levelNumber].placeNewRoom(this.x+1, this.y);
 				this.adjRoomChance += ADJ_ROOM_CHANCE_DECREASE;
+				createdRoom = true;
+			}
+
+			if(createdRoom) {
+				//then, update the level edge counters
+				//^to fix bug on infinite loop
+				lvlArray[this.levelNumber].updateLevelEdgeCounters();
 			}
 		}
 	}
+
+
 	
 	if(lvlArray[this.levelNumber].roomCount < lvlArray[this.levelNumber].maxRooms && ENABLE_ADJ_ROOMS){
 		this.createAdjacentRoom();
