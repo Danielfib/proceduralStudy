@@ -3,6 +3,7 @@ const LEVEL_COLS = 5;
 const LEVEL_ONE_DIFFICULTY = 2;
 const LEVEL_ONE_MAX_ROOMS = 15;
 const LEVEL_ONE_MIN_ROOMS = 8;
+var ENABLE_ADJ_ROOMS = false;
 
 var lvlArray = []; //maybe I will need it later, together with lvlNumber
 
@@ -14,7 +15,7 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 	this.rows = rows;
 	this.cols = cols;
 	this.difficulty = difficulty;
-	this.roomCount = 0;
+	this.roomCount = 1; //starts with the initial one
 	this.maxRooms = maxRooms;
 	this.minRooms = minRooms;
 
@@ -43,36 +44,47 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 		this.intArray[xRCoord][yRCoord] = 1;
 		this.setPlayerInitialPosition(xRCoord, yRCoord);
 		console.log(xRCoord, yRCoord);
-		for(var c = 0; c < numRooms; c++){
-			var newRoomDirection = Math.random();
-			//console.log(newRoomDirection);
-			//the position to check room availability uses the counters, to go beyond the 1-lenght-cross
-			if (newRoomDirection < 0.25 && this.checkFurthestRoomExistOnDir(0, xRCoord, yRCoord)){
-				//console.log("room to the west"); 
-				//create a room to the west
-				//if there is no room to the west, nor we're on left edge, create one
-				this.placeNewRoom(xRCoord, yRCoord + (-1 * this.westRoomsFromStart));
-				this.westRoomsFromStart++;
-			} else if (newRoomDirection < 0.5 && this.checkFurthestRoomExistOnDir(1, xRCoord, yRCoord)){
-				//console.log("room to the east");
-				//create room to the east
-				//if there is no room to the east, nor we're on right edge, create one
-				this.placeNewRoom(xRCoord, yRCoord+ (1 * this.eastRoomsFromStart));
-				this.eastRoomsFromStart++;
-			} else if (newRoomDirection < 0.75 && this.checkFurthestRoomExistOnDir(2, xRCoord, yRCoord)){
-				//console.log("room to the north");
-				//create room to the north
-				//if there is no room to the north, nor we're on upper edge, create one
-				this.placeNewRoom(xRCoord + (-1 * this.northRoomsFromStart), yRCoord);
-				this.northRoomsFromStart++;
-			} else if (newRoomDirection < 1 && this.checkFurthestRoomExistOnDir(3, xRCoord, yRCoord)){ 
-				//console.log("room to the south");
-				//create room to the south
-				//if there is no room to the south, nor we're on bottom edge, create one
-				this.placeNewRoom(xRCoord + (1 * this.southRoomsFromStart), yRCoord);
-				this.southRoomsFromStart++;
-			}
-			this.roomCount++; //limits how many rooms are created
+		ENABLE_ADJ_ROOMS = true; //just so that no adjacent rooms are created within base setup, and just from now on
+		while(this.roomCount < this.minRooms){ //infinite looping here sometimes
+			console.log("oi");
+			console.log("-----------------------");
+			console.log(this.eastRoomsFromStart+","+this.westRoomsFromStart+","+this.northRoomsFromStart+","+this.southRoomsFromStart);
+			//for(var c = 0; c < numRooms; c++){
+				var newRoomDirection = Math.random();
+				//console.log(newRoomDirection);
+				//the position to check room availability uses the counters, to go beyond the 1-lenght-cross
+				if (newRoomDirection < 0.25 && this.checkFurthestRoomExistOnDir(0, xRCoord, yRCoord)){
+					//console.log("room to the west"); 
+					//create a room to the west
+					//if there is no room to the west, nor we're on left edge, create one
+					this.placeNewRoom(xRCoord, yRCoord + (-1 * this.westRoomsFromStart));
+					this.westRoomsFromStart++;
+				} else if (newRoomDirection < 0.5 && this.checkFurthestRoomExistOnDir(1, xRCoord, yRCoord)){
+					//console.log("room to the east");
+					//create room to the east
+					//if there is no room to the east, nor we're on right edge, create one
+					this.placeNewRoom(xRCoord, yRCoord+ (1 * this.eastRoomsFromStart));
+					this.eastRoomsFromStart++;
+				} else if (newRoomDirection < 0.75 && this.checkFurthestRoomExistOnDir(2, xRCoord, yRCoord)){
+					//console.log("room to the north");
+					//create room to the north
+					//if there is no room to the north, nor we're on upper edge, create one
+					this.placeNewRoom(xRCoord + (-1 * this.northRoomsFromStart), yRCoord);
+					this.northRoomsFromStart++;
+				} else if (newRoomDirection < 1 && this.checkFurthestRoomExistOnDir(3, xRCoord, yRCoord)){ 
+					//console.log("room to the south");
+					//create room to the south
+					//if there is no room to the south, nor we're on bottom edge, create one
+					this.placeNewRoom(xRCoord + (1 * this.southRoomsFromStart), yRCoord);
+					this.southRoomsFromStart++;
+				} else {
+					//sometimes enter here becaus for example,
+					//the algorithm may want to create a room up, when we're already on top edge
+					//but, if we have a situation in which we cant create anymore
+					//console.log("oloko");
+				}
+				//this.roomCount++; //limits how many rooms are created
+			//}
 		}
 
 		this.placeRoomsDoors();
@@ -84,11 +96,13 @@ function level(numberOfRooms, rows, cols, difficulty, lvlNumber, maxRooms, minRo
 		if(DEBUG_ON)console.log("room in:", x, y);
 		this.intArray[x][y] = 1;
 		this.roomsArray[x][y] = new room(false, false, false, false, x, y, this.lvlNumber);
+		this.roomCount++; //limits how many rooms are created
+		console.log("eae" + this.roomCount);
 	}
 
 	this.checkFurthestRoomExistOnDir = function(dir, currentX , currentY){
 		if (dir == 0){ //see if there is a room to the west
-			if(currentY-this.westRoomsFromStart < 0){
+			if(currentY-this.westRoomsFromStart < 0){ //if on edge
 				return false;
 			} else if (this.intArray[currentX][currentY-this.westRoomsFromStart] == 0){
 				return true;

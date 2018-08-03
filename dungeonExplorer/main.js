@@ -22,10 +22,9 @@ MINIMAP / DEBBUGING:
 	- zoom in, and make the canvas center follow the room the player is in?
 	- after, this minimap must not be able to show all the rooms
 
-	BUG: sometimes, there are rooms being generated not linked to other rooms, impossible to get to
-		^bug appearing in commit dca07628465c4b0d4094a49a2f10c023b4ac5252, "[RG] determining minimum number of rooms generated"
-		^see how miminum room limit is affecting this
-		^POSSIBLE SOLUTION: on main, shouldnt be a loop, loop is already on generateRandomLevel()
+	BUG: sometimes, the room creation enters an infinite loop
+		^this started to happen after i solved the island bug
+		^possible cause: the adjacent room creation on room are overlapping the counters of rooms from start, and it may be bugging the edge checkers methods
 
 COMBAT:
 	- make shots (for now just one shoot speed)
@@ -154,9 +153,9 @@ function setupLevels(){
 	//setup levels matrices
 	levelOne.setupInitialMatrices(5, 5); //dimensions of the empty matrice
 	//levelOne.createCrossExample(); //rooms disposal used for now
-	while(levelOne.minRooms  > levelOne.roomCount){
-		levelOne.generateRandomLevel();
-	}	
+	
+	levelOne.generateRandomLevel();
+	
 }
 
 function setupPlayers(){
